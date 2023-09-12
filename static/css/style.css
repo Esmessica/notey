@@ -6,14 +6,13 @@
     height: 100vh;
 }
 
-
 .dark-strip {
     padding: 10rem;
     background: #E5EBFF; 
     width: 57vw;
     height: 100vh;
     display: block;
-    position:absolute;
+    position: absolute;
     right: 0;
     
 }
@@ -63,6 +62,8 @@ nav .navbar-brand {
     text-decoration: none; 
     color: white;
 }
+
+
 
 /*
 test
