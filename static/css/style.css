@@ -31,7 +31,13 @@ nav li a {
     margin: 0 3vw; 
 }
 
+nav li a:hover{
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.648);
+    color: white;
+}
+
 nav .navbar-brand {
+    /* CHANGE FONT HERE FOR LOGO */
     font-size: 1.2rem; 
     color: white; 
     margin-right: auto; /* Push to the left */
