@@ -10,13 +10,35 @@
     background: #C0CEFF;
 }
 
-.nav-color {
-    background: #8AAEFF;
+nav {
+    background-color: #8AAEFF;
+    padding: 0 0 0 2vw; 
+    overflow: hidden;
 }
 
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; /* Vertically center items */
+}
 
+nav li a {
+    text-decoration: none; 
+    color: white; 
+    margin: 0 3vw; 
+}
 
+nav .navbar-brand {
+    font-size: 1.2rem; 
+    color: white; 
+    margin-right: auto; /* Push to the left */
+}
+
+/*test*/
 h1{
 color: red;
-background: #C0CEFF;
+background: #E5EBFF;
 }
