@@ -6,8 +6,16 @@
     height: 100vh;
 }
 
-.dark-ho-strip {
-    background: #C0CEFF;
+
+.dark-strip {
+    padding: 10rem;
+    background: #E5EBFF; 
+    width: 57vw;
+    height: 100vh;
+    display: block;
+    position:absolute;
+    right: 0;
+    
 }
 
 nav {
@@ -32,7 +40,7 @@ nav li a {
 }
 
 nav li a:hover{
-    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.648);
+    text-shadow: 0px 0px 2px rgb(255, 255, 255);
     color: white;
 }
 
@@ -43,8 +51,25 @@ nav .navbar-brand {
     margin-right: auto; /* Push to the left */
 }
 
-/*test*/
+.big-button-basic {
+    padding: 0 1.1rem;
+    background: #8AAEFF;
+    border-radius: 24px 24px;
+    border-style: none;
+}
+
+.big-button-basic a{
+    font-size: 2rem;
+    text-decoration: none; 
+    color: white;
+}
+
+/*
+test
+
 h1{
 color: red;
 background: #E5EBFF;
 }
+
+*/
