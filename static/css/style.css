@@ -1,4 +1,11 @@
-
+@font-face {
+    font-family: PatrickHand_Regular;
+    font-style: normal;
+    font-weight: 300;
+    src:
+    local('PatrickHand') url('/static/fonts/PatrickHand_Regular.ttf') format('truetype');
+  
+  }
 
 .purple-body {
     background: #EEF2FF;
@@ -39,6 +46,7 @@ nav li a {
     color: white; 
     margin: 0 3vw; 
     font-size: 1.5rem;
+    font-family: 'PatrickHand';
 }
 
 nav li a:hover{
