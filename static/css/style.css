@@ -7,6 +7,7 @@
     margin: 0;
     width: 100vw;
     height: 100vh;
+    font-family: 'Patrick Hand', cursive;
 }
 
 .dark-strip {
@@ -17,13 +18,26 @@
     display: block;
     position: absolute;
     right: 0;
-    
+}
+
+.dark-strip h1{
+    font-size: 6rem;
+}
+
+.dark-strip h3{
+    font-size: 3rem;   
+    margin: 2rem 0 6rem 0; 
 }
 
 nav {
     background-color: #8AAEFF;
     padding: 0.1rem 0 0.1rem 2vw; 
     overflow: hidden;
+    padding-bottom: 0.5rem;
+}
+
+.logo_title{
+    max-height: 6rem;
 }
 
 .logo_nav{
@@ -43,7 +57,7 @@ nav li a {
     text-decoration: none; 
     color: white; 
     margin: 0 3vw; 
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     font-family: 'Patrick Hand', cursive;
 }
 
@@ -53,23 +67,25 @@ nav li a:hover{
 }
 
 nav .navbar-brand {
-    /* CHANGE FONT HERE FOR LOGO */
     font-size: 1.2rem; 
     color: white; 
     margin-right: auto; /* Push to the left */
 }
 
 .big-button-basic {
-    padding: 0 1.1rem;
+
+    padding: 0 1rem;
     background: #8AAEFF;
-    border-radius: 24px 24px;
+    border-radius: 50px;
     border-style: none;
+
 }
 
 .big-button-basic a{
-    font-size: 2rem;
+    font-size: 3.2rem;
     text-decoration: none; 
     color: white;
+    padding: 0 2rem;
 }
 
 
