@@ -1,3 +1,5 @@
+
+
 .purple-body {
     background: #EEF2FF;
     padding: 0;
@@ -36,6 +38,7 @@ nav li a {
     text-decoration: none; 
     color: white; 
     margin: 0 3vw; 
+    font-size: 1.5rem;
 }
 
 nav li a:hover{
