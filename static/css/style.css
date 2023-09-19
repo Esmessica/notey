@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
+.color_text{
+    color: #30323D;
+}
+
 
 .purple-body {
     background: #EEF2FF;
