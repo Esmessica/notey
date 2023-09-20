@@ -9,9 +9,13 @@
     background: #EEF2FF;
     padding: 0;
     margin: 0;
-    width: 100vw;
     height: 100vh;
     font-family: 'Patrick Hand', cursive;
+}
+
+.main-content-container {
+    display: flex;
+
 }
 
 .dark-strip {
@@ -22,16 +26,15 @@
     position: absolute;
     right: 0;
     display: flex;
-
     justify-content: space-between;
 }
 
 .dark-strip h1{
-    font-size: 9rem;
+    font-size: clamp(4rem, 6.4vw, 7.5rem);
 }
 
 .dark-strip h3{
-    font-size: 4.2rem;   
+    font-size: clamp(2.5rem, 2.8vw, 4rem);  
     margin: 2rem 0 8rem 0; 
 }
 
@@ -43,7 +46,7 @@ nav {
 }
 
 .logo_title{
-    max-height: 9rem;
+    max-width: 17vw;
 }
 
 .logo_nav{
@@ -89,19 +92,24 @@ nav .navbar-brand {
 }
 
 .big-button-basic a{
-    font-size: 5rem;
+    font-size: 4rem;
     text-decoration: none; 
     color: white;
     padding: 0 5rem;
 }
 
 .text-thingy{
-    padding-top: 4%;
-    padding-right: 2%;
+    padding-top: 4vh;
+
 }
 
 .text-thingy img{
-    height: 24rem;
+    height: 34vh;
+}
+
+.tilted-book-main img{
+    padding-top: 3%;
+    height: 80vh;
 }
 
 
