@@ -19,18 +19,20 @@
     background: #E5EBFF; 
     width: 57vw;
     height: 100vh;
-    display: block;
     position: absolute;
     right: 0;
+    display: flex;
+
+    justify-content: space-between;
 }
 
 .dark-strip h1{
-    font-size: 6rem;
+    font-size: 9rem;
 }
 
 .dark-strip h3{
-    font-size: 3rem;   
-    margin: 2rem 0 6rem 0; 
+    font-size: 4.2rem;   
+    margin: 2rem 0 8rem 0; 
 }
 
 nav {
@@ -41,7 +43,7 @@ nav {
 }
 
 .logo_title{
-    max-height: 6rem;
+    max-height: 9rem;
 }
 
 .logo_nav{
@@ -77,21 +79,30 @@ nav .navbar-brand {
 }
 
 .big-button-basic {
-
-    padding: 0 1rem;
+    padding: 0;
     background: #8AAEFF;
-    border-radius: 50px;
+    border-radius: 80px;
     border-style: none;
-
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .big-button-basic a{
-    font-size: 3.2rem;
+    font-size: 5rem;
     text-decoration: none; 
     color: white;
-    padding: 0 2rem;
+    padding: 0 5rem;
 }
 
+.text-thingy{
+    padding-top: 4%;
+    padding-right: 2%;
+}
+
+.text-thingy img{
+    height: 24rem;
+}
 
 
 /*
