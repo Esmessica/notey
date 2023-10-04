@@ -112,7 +112,7 @@ nav .navbar-brand {
 
 .tilted-book-main img{
     padding-top: 3%;
-    height: 80vh;
+    max-height: 80vh;
 }
 
 

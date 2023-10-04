@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'notey_app'
 
-"""
+
 urlpatterns = [
-    path('')
-]"""
+    path('about/', views.AboutView.as_view(), name='about'),
+]
