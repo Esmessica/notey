@@ -117,25 +117,22 @@ nav .navbar-brand {
     font-family: 'Patrick Hand', cursive;
 }
 
+
 /*
 About css
 */
 
-.main-container{
-    padding: 5rem 8rem;
-}
 
 .normal-text{
-    font-size: 3em;
+    font-size: 2em;
 }
 
 .heading-medium{
-    font-size: 10em;
+    font-size: 6em;
 }
 
 .eewee-png{
-    max-height: 40vh;
-
+    max-height: 35vh;
 }
 
 .eewee-meet{
@@ -152,6 +149,20 @@ About css
     border-radius: 50px 40px 40px 0;
     height: fit-content;
     padding: 1rem 2rem;
+}
+
+.main-container{
+    display:flex;
+}
+
+.left-strip{
+    margin:0;
+    padding: 10rem;
+    background: #E5EBFF;
+    width: 55vw;
+
+
+
 }
 
 /*
