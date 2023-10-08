@@ -1,6 +1,5 @@
 body{
     font-family: 'Patrick Hand', cursive;
-    font-family: 'Playfair Display', serif;
 }
 
 .color_text{
@@ -89,14 +88,13 @@ nav .navbar-brand {
     background: #8AAEFF;
     border-radius: 80px;
     border-style: none;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-left: 50%;
+    font-family: 'Patrick Hand', cursive;
 }
 
 .big-button-basic a{
-    font-size: 4rem;
-    text-decoration: none; 
+    font-size: 5rem;
+    text-decoration: none;
     color: white;
     padding: 0 5rem;
 }
@@ -107,7 +105,7 @@ nav .navbar-brand {
 }
 
 .text-thingy img{
-    height: 34vh;
+    max-height: 34vh;
 }
 
 .tilted-book-main img{
@@ -115,6 +113,46 @@ nav .navbar-brand {
     max-height: 80vh;
 }
 
+.patric-font{
+    font-family: 'Patrick Hand', cursive;
+}
+
+/*
+About css
+*/
+
+.main-container{
+    padding: 5rem 8rem;
+}
+
+.normal-text{
+    font-size: 3em;
+}
+
+.heading-medium{
+    font-size: 10em;
+}
+
+.eewee-png{
+    max-height: 40vh;
+
+}
+
+.eewee-meet{
+    display: flex;
+    margin: 5vh 3vw;
+}
+
+.heading-meet{
+    font-size: 4rem;
+}
+
+.meet{
+    background: white;
+    border-radius: 50px 40px 40px 0;
+    height: fit-content;
+    padding: 1rem 2rem;
+}
 
 /*
 test
