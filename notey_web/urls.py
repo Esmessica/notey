@@ -16,12 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from notey_app import views
+from notey_app import views as n_views
+from django.contrib.auth import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', n_views.index, name='index'),
     path('admin/', admin.site.urls),
     path('', include('notey_app.urls')),
+    path('login/', views.LoginView.as_view(), name='login'),
+    path('logout/', views.LogoutView.as_view(), name='logout'),
 
 ]
