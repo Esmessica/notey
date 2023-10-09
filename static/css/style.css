@@ -191,12 +191,9 @@ About css
     padding: 2rem 0 5rem 0;
     font-size: 3rem;
 }
-/*
-test
 
-h1{
-color: red;
-background: #E5EBFF;
+/*login*/
+
+.smaller-btn{
+    font-size: 3rem;
 }
-
-*/
