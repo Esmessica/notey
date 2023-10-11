@@ -3,7 +3,7 @@ body{
 }
 
 .color_text{
-    color: #30323D;
+    color: #545454;
 }
 
 
@@ -196,4 +196,31 @@ About css
 
 .smaller-btn{
     font-size: 3rem;
+}
+
+.plus{
+    height: 4rem;
+    padding: 0 1rem 0.8rem 0;
+}
+
+form label{
+    display: block;
+}
+
+form input:focus{
+	outline: 4px solid #b7cbf7;
+	outline-offset: -2px;
+}
+
+form input{
+    border: none;
+    padding: 0.2rem 1rem;
+    border-radius: 5px;
+    background: white;
+    color: #545454;
+
+}
+
+.login_heading{
+    padding: 4rem 0 3rem 0;
 }

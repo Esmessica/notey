@@ -3,7 +3,7 @@
 
 {% block body_block %}
 <div class="color_text patric-font text-center normal-text">
-     <h2>login</h2>
+     <h1 class="login_heading">login to continue...</h1>
 
         {% if form.eroors %}
             <p>Username and password did not match. Please try again.</p>
@@ -23,8 +23,8 @@
 
         </form>
     <div class="mt-5 ">
-        <h3 class="mb-5">Don't have account yet?</h3>
-        <input class="normal-button-basic button-hvr" type="submit" value="Make account" >
+        <h2 class="mb-5">Don't have account yet?</h2>
+        <a href="#"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/white-plus.png"> Make account </button></a>
     </div>
 
 </div>
