@@ -17,7 +17,7 @@
         <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
                 {{ form.as_p }}
-            <input class="normal-button-basic button-hvr smaller-btn mt-5" type="submit" value="LOGIN" >
+            <a href="#"><button type="submit" class="normal-button-basic button-hvr smaller-btn mt-5"> LOGIN </button></a>
 
             <input type="hidden" name="next" value="{{ next }}"> <!-- next is getting supplied by login view -->
 

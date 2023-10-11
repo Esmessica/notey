@@ -224,3 +224,29 @@ form input{
 .login_heading{
     padding: 4rem 0 3rem 0;
 }
+
+/* logout */
+
+.logout_text{
+    font-size: 5rem;
+    padding: 4rem 0 ;
+}
+
+.bunny-big{
+    width: 18rem;
+    padding: 4rem 0;
+}
+
+.logout-goodbye{
+    background: white;
+    width: 30vw;
+    margin: auto;
+    width: 25vw;
+    border-radius: 8px;
+}
+
+.logout-goodbye p{
+    font-size: 4rem;
+    white-space: no-wrap;
+    padding: 0rem 2rem;
+}
