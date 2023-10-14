@@ -22,3 +22,8 @@ def index(request):
 class AboutView(TemplateView):
     template_name = 'notey_app/about.html'
 
+class NotesView(TemplateView):
+    template_name = 'notey_app/notes.html'
+
+class MoodView(TemplateView):
+    template_name = 'notey_app/mood.html'

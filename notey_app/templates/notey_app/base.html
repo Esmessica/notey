@@ -21,8 +21,15 @@
     <nav>
         <ul>
             <li class="navbar-brand"><a href="{% url 'index' %}"> <img class="logo_nav" src="{% static 'icons/notey.png' %}" alt="Notey"></a></li>
-            <li><a href="{% url 'notey_app:about' %}">about</a></li>
-            <li><a href="{% url 'login' %}">login</a></li>
+
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'notey_app:notes' %}">notes</a></li>
+                    <li><a href="{% url 'notey_app:mood' %}">mood</a> </li>
+                    <li><a href="{% url 'logout' %}">logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'notey_app:about' %}">about</a></li>
+                    <li><a href="{% url 'login' %}">login</a></li>
+                {% endif %}
 
         </ul>
 
