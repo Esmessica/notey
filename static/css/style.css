@@ -117,6 +117,11 @@ nav .navbar-brand {
     text-shadow: 0px 0px 2px rgb(255, 255, 255);
 }
 
+.hands-picture{
+    width: 57vw;
+    overflow: hidden;
+}
+
 /*
 About css
 */
@@ -163,6 +168,10 @@ About css
     padding: 10rem;
     background: #E5EBFF;
     width: 55vw;
+}
+/* for using in home.html*/
+.smaller-width{
+    width: 40vw;
 }
 
 .second-strip{
@@ -250,3 +259,4 @@ form input{
     white-space: no-wrap;
     padding: 0rem 2rem;
 }
+

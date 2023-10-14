@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
 
 # registration related
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView, LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
@@ -21,6 +22,13 @@ def index(request):
 
 class AboutView(TemplateView):
     template_name = 'notey_app/about.html'
+
+class AboutView(TemplateView):
+    template_name = 'notey_app/about.html'
+
+class CustomLoginView(LoginView):
+    def get_success_url(self):
+        return reverse_lazy('index')
 
 class NotesView(TemplateView):
     template_name = 'notey_app/notes.html'
