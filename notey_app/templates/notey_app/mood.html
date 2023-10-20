@@ -1,0 +1,40 @@
+{% extends "notey_app/base.html" %}
+
+{% block body_block %}
+
+    <div class="color_text patric-font text-center normal-text d-grid gap-4">
+
+        <div class="horizontal-dark-strip">
+            <h1 class="">How are you feeling today,<br>{{ user.username }} ?</h1>
+         </div>
+
+        <div class="">
+            <img class="eewee-png  eewee-mood-title" src="/static/ewe/surprise.PNG" alt="Eewee bunny surpised">
+
+
+            <label class="heading-meet" for="mood">mood: </label>
+                  <select class="mood-roller" id="mood">
+                    <option>angry</option>
+                    <option>annoyed</option>
+                    <option>sad</option>
+                    <option>very sad</option>
+                    <option>fine</option>
+                    <option>mischievous</option>
+                    <option>excited</option>
+                    <option>playful</option>
+                    <option>bored</option>
+                    <option>sick</option>
+                    <option>silly</option>
+                    <option>sleepy</option>
+                    <option>surprise</option>
+                    <option>unhappy</option>
+                    <option>grumpy</option>
+                  </select>
+
+            <button class="invisible-btn" type="submit"><img src="/static/icons/btn.png"></button>
+
+        </div>
+
+    </div>
+
+{% endblock %}
