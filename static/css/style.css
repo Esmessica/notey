@@ -12,13 +12,13 @@ body{
     padding: 0;
     margin: 0;
     height: 100vh;
-
 }
 
 .main-content-container {
     display: flex;
-
 }
+
+
 
 .dark-strip {
     padding: 10rem;
@@ -136,7 +136,7 @@ About css
 }
 
 .heading-medium{
-    font-size: 5em;
+    font-size: clamp(3rem, 6vw, 7.5rem);
 }
 
 .eewee-png{
@@ -165,7 +165,7 @@ About css
 
 .left-strip{
     margin:0;
-    padding: 10rem;
+    padding: 8%;
     background: #E5EBFF;
     width: 55vw;
 }
