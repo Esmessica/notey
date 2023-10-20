@@ -67,11 +67,16 @@ nav li a {
     margin: 0 3vw; 
     font-size: 3.5rem;
     font-family: 'Patrick Hand', cursive;
+    transition: all 0.5s ease-out;
 }
 
 nav li a:hover{
-    text-shadow: 0px 0px 2px rgb(255, 255, 255);
-    color: white;
+   -webkit-transition: text-shadow 0.5s ease-out;
+   -moz-transition: text-shadow 0.5s ease-out;
+   -o-transition: text-shadow 0.5s ease-out;
+   transition: text-shadow 0.5s ease-out;
+   text-shadow: 0px 0px 2px rgb(255, 255, 255);
+   color: white;
 }
 
 nav .navbar-brand {
@@ -90,6 +95,7 @@ nav .navbar-brand {
     text-decoration: none;
     color: white;
     padding: 0 5rem;
+    transition: all 0.5s ease-out;
 }
 
 .text-thingy{
@@ -115,6 +121,10 @@ nav .navbar-brand {
 
 .button-hvr:hover{
     text-shadow: 0px 0px 2px rgb(255, 255, 255);
+    -webkit-transition: text-shadow 0.5s ease-out;
+    -moz-transition: text-shadow 0.5s ease-out;
+    -o-transition: text-shadow 0.5s ease-out;
+    transition: text-shadow 0.5s ease-out;
 }
 
 .hands-picture{
@@ -190,6 +200,7 @@ About css
     border-radius: 80px;
     border-style: none;
     font-family: 'Patrick Hand', cursive;
+    transition: all 0.5s ease-out;
 }
 
 .reg-text{
@@ -205,6 +216,7 @@ About css
 
 .smaller-btn{
     font-size: 3rem;
+    transition: all 0.5s ease-out;
 }
 
 .plus{
