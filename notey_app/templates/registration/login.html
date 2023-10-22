@@ -1,8 +1,10 @@
-
 {% extends "notey_app/base.html" %}
 
 {% block body_block %}
 <div class="color_text patric-font text-center normal-text">
+    {% if user.is_authenticated %}
+        <h1>You are already logged in.</h1>
+    {% else %}
      <h1 class="login_heading">login to continue...</h1>
 
         {% if form.eroors %}
@@ -14,19 +16,20 @@
         in form tag we don't need 'blog:' becouse templates folder is not at project level
         -->
 
-        <form method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-                {{ form.as_p }}
-            <a href="#"><button type="submit" class="normal-button-basic button-hvr smaller-btn mt-5"> LOGIN </button></a>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                    {{ form.as_p }}
+                <a href="#"><button type="submit" class="normal-button-basic button-hvr smaller-btn mt-5"> LOGIN </button></a>
 
-            <input type="hidden" name="next" value="{{ next }}"> <!-- next is getting supplied by login view -->
+                <input type="hidden" name="next" value="{{ next }}"> <!-- next is getting supplied by login view -->
 
-        </form>
-    <div class="mt-5 ">
-        <h2 class="mb-5">Don't have account yet?</h2>
-        <a href="#"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/white-plus.png"> Make account </button></a>
-    </div>
-
+            </form>
+        <div class="mt-5 ">
+            <h2 class="mb-5">Don't have account yet?</h2>
+            <a href="#"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/white-plus.png"> Make account </button></a>
+        </div>
+    {% endif %}
 </div>
+
 
 {% endblock %}

@@ -34,7 +34,7 @@ class Mood(models.Model):
         ('mischievous', 'mischievous'),
         ('excited', 'excited'),
         ('playful', 'playful'),
-        ('boder', 'boder'),
+        ('bored', 'bored'),
         ('sick', 'sick'),
         ('sleepy', 'sleepy'),
         ('surprised', 'surprised'),
