@@ -17,21 +17,23 @@ class CustomLogoutView(LogoutView):
         response = super().dispatch(request, *args, **kwargs)
         return response
 
+
 def index(request):
     return render(request, 'notey_app/home.html')
 
-class AboutView(TemplateView):
-    template_name = 'notey_app/about.html'
 
 class AboutView(TemplateView):
     template_name = 'notey_app/about.html'
+
 
 class CustomLoginView(LoginView):
     def get_success_url(self):
         return reverse_lazy('index')
 
-class NotesView(TemplateView):
+
+class NotesView(TemplateView, LoginRequiredMixin):
     template_name = 'notey_app/notes.html'
 
-class MoodView(TemplateView):
+
+class MoodView(TemplateView, LoginRequiredMixin):
     template_name = 'notey_app/mood.html'
