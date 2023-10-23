@@ -22,6 +22,9 @@ class Note(models.Model):
         return reverse('daily_advice')
     # redirects to daily advice based on mood
 
+    def __str__(self):
+        return self.title
+
 
 class Mood(models.Model):
     mood_date = models.DateTimeField(default=timezone.now)
@@ -43,7 +46,12 @@ class Mood(models.Model):
     )
     my_mood = models.CharField(max_length=25, choices=MOOD_CHOICES)
 
+    def __str__(self):
+        return self.my_mood
 
 class Advice(models.Model):
-    my_mood = models.ForeignKey('Mood', on_delete=models.CASCADE)
+    mood_option = models.CharField(max_length=25, choices=Mood.MOOD_CHOICES)
     text_advice = models.TextField(max_length=600)
+
+    def __str__(self):
+        return f"Advice for {self.mood_option}"
