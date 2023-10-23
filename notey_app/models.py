@@ -49,8 +49,26 @@ class Mood(models.Model):
     def __str__(self):
         return self.my_mood
 
+
 class Advice(models.Model):
-    mood_option = models.CharField(max_length=25, choices=Mood.MOOD_CHOICES)
+
+    MOOD_CHOICES = (
+        ('angry', 'angry'),
+        ('annoyed', 'annoyed'),
+        ('sad', 'sad'),
+        ('very sad', 'very sad'),
+        ('fine', 'fine'),
+        ('mischievous', 'mischievous'),
+        ('excited', 'excited'),
+        ('playful', 'playful'),
+        ('bored', 'bored'),
+        ('sick', 'sick'),
+        ('sleepy', 'sleepy'),
+        ('surprised', 'surprised'),
+        ('unhappy', 'unhappy'),
+        ('grumpy', 'grumpy')
+    )
+    mood_option = models.CharField(max_length=25, choices=MOOD_CHOICES)
     text_advice = models.TextField(max_length=600)
 
     def __str__(self):

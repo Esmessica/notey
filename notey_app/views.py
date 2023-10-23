@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
-from .models import Mood
+from .models import Mood, Advice
 # registration related
 from django.contrib.auth.views import LogoutView, LoginView
 from django.contrib.auth.decorators import login_required
@@ -64,3 +64,15 @@ class SaveMoodView(LoginRequiredMixin, View):
 
         return render(request, 'notey_app/mood_advice.html')
 
+
+
+def mood_advice(request):
+    if request.method == 'POST':
+        selected_mood = request.POST.get('mood')
+        if selected_mood:
+            # Retrieve advice based on the selected mood
+            advice = Advice.objects.filter(mood_option=selected_mood).first()
+
+            return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': selected_mood})
+
+    return render(request, 'notey_app/mood.html')

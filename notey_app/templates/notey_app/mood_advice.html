@@ -4,6 +4,13 @@
 <div class="color_text patric-font text-center normal-text">
     <h1>Here goes advices</h1>
 
+    {% if advice %}
+        <div class="advice">
+            <h2>Advice for {{ selected_mood }}:</h2>
+            <p>{{ advice.text_advice }}</p>
+        </div>
+    {% endif %}
+
 </div>
 
 {% endblock %}
