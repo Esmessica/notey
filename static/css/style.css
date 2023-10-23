@@ -54,6 +54,20 @@ nav {
     max-height: 4rem;
 }
 
+form button {
+  text-decoration: none;
+  color: white;
+  margin: 0 3vw;
+  font-size: 3.5rem;
+  font-family: 'Patrick Hand', cursive;
+  transition: all 0.5s ease-out;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: white;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;

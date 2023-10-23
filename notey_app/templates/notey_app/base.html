@@ -25,7 +25,11 @@
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'notey_app:notes' %}">notes</a></li>
                     <li><a href="{% url 'notey_app:mood' %}">mood</a> </li>
-                    <li><a href="{% url 'logout' %}">logout</a></li>
+                        <form method="post" action="{% url 'logout' %}">
+                          {% csrf_token %}
+                          <button type="submit">Logout</button>
+                        </form>
+
                 {% else %}
                     <li><a href="{% url 'notey_app:about' %}">about</a></li>
                     <li><a href="{% url 'login' %}">login</a></li>
