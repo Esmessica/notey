@@ -62,17 +62,14 @@ class SaveMoodView(LoginRequiredMixin, View):
         else:
             messages.error(request, 'Something went wrong.')
 
-        return render(request, 'notey_app/mood_advice.html')
+        if request.method == 'POST':
+            selected_mood = request.POST.get('mood')
+            if selected_mood:
+                # Retrieve advice based on the selected mood
+                advice = Advice.objects.filter(mood_option=selected_mood).first()
 
+                print("Selected Mood:", selected_mood)
+                print("Advice:", advice)
 
-
-def mood_advice(request):
-    if request.method == 'POST':
-        selected_mood = request.POST.get('mood')
-        if selected_mood:
-            # Retrieve advice based on the selected mood
-            advice = Advice.objects.filter(mood_option=selected_mood).first()
-
-            return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': selected_mood})
-
-    return render(request, 'notey_app/mood.html')
+                return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': selected_mood})
+        return render(request, 'notey_app/mood.html')
