@@ -2,13 +2,14 @@
 
 {% block body_block %}
 <div class="color_text patric-font text-center normal-text">
-    <h1>Here goes advices</h1>
 
     {% if advice %}
-        <div class="advice">
-            <h2>Advice for {{ selected_mood }}:</h2>
-            <p>{{ advice.text_advice }}</p>
-        </div>
+        <img class="bunny_advice" src="/static/ewe/{{ mood_image_filename }}" alt="Mood Image">
+            <div class="advice">
+                <p>{{ advice.text_advice }}</p>
+            </div>
+       <a href="{% url 'index' %}"><button class="invisible-btn"><img src="/static/icons/btn.png"></button></a>
+
     {% endif %}
 
 </div>

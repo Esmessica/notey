@@ -71,5 +71,15 @@ class SaveMoodView(LoginRequiredMixin, View):
                 print("Selected Mood:", selected_mood)
                 print("Advice:", advice)
 
-                return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': selected_mood})
-        return render(request, 'notey_app/mood.html')
+                if selected_mood:
+                    # Construct the image filename based on the selected mood
+                    mood_image_filename = f"{selected_mood}.PNG"
+
+                    # Retrieve advice based on the selected mood
+                    advice = Advice.objects.filter(mood_option=selected_mood).first()
+
+
+                    return render(request, 'notey_app/mood_advice.html',
+                                  {'advice': advice, 'selected_mood': selected_mood,
+                                   'mood_image_filename': mood_image_filename})
+                return render(request, 'notey_app/mood.html')

@@ -303,6 +303,10 @@ form input{
 
 }
 
+.form_mood{
+    display: inline-flex;
+}
+
 .eewee-mood-title{
     margin: 1rem 5rem 0 0;
 }
@@ -317,3 +321,15 @@ form input{
     margin: 0 0 20px 4rem;
 }
 
+/* Advice */
+
+.advice{
+    padding: 3rem ;
+    background: white;
+    margin: 1rem 15vw;
+}
+
+.bunny_advice{
+    margin-top: 8vh;
+    width: 20vw;
+}

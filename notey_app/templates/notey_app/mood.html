@@ -11,15 +11,21 @@
         <div class="">
             <img class="eewee-png  eewee-mood-title" src="/static/ewe/surprise.PNG" alt="Eewee bunny surpised">
 
-            <form method="post" action="{% url 'notey_app:mood_advice' %}">
+            <form  method="post" action="{% url 'notey_app:mood_advice' %}">
                 {% csrf_token %}
-                <label class="heading-meet" for="mood">Mood:</label>
-                <select class="mood-roller" id="mood" name="mood">
-                    <option value=""></option>
-                    {% for choice in mood_choices %}
-                        <option value="{{ choice.0 }}">{{ choice.1 }}</option>
-                    {% endfor %}
-                </select>
+
+                <div class="form_mood">
+                            <label class="heading-meet" for="mood">Mood:</label>
+
+                    <select class="mood-roller" id="mood" name="mood">
+                        <option value=""></option>
+                        {% for choice in mood_choices %}
+                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
                 <button class="invisible-btn" type="submit"><img src="/static/icons/btn.png"></button>
             </form>
 
