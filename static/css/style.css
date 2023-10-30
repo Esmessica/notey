@@ -129,6 +129,11 @@ nav .navbar-brand {
 
 .tilted-book-main img{
     max-height: 85vh;
+    padding: 3rem;
+}
+
+.strip_text_content{
+    margin-left: 6rem;
 }
 
 .patric-font{
