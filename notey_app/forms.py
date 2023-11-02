@@ -1,13 +1,19 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 from django.contrib.auth.models import User
 from .models import Note
 
 
 class RegisterForm(UserCreationForm):
+    username = forms.CharField(label="name")
+    email = forms.EmailField(label="email")
+    password1 = forms.CharField(label="password")
+    password2 = forms.CharField(label="re-enter password")
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
 
 
 class NoteForm(forms.ModelForm):
@@ -26,3 +32,8 @@ class NoteForm(forms.ModelForm):
         """
         widgets sets class for css, allows to edit content via class we set here
         """
+
+
+class CustomLoginForm(AuthenticationForm):
+    username = forms.CharField(label="name")
+    password = forms.CharField(label="password")

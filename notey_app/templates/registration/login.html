@@ -1,21 +1,17 @@
 {% extends "notey_app/base.html" %}
 
 {% block body_block %}
-<div class="color_text patric-font text-center normal-text">
+<div class="color_text patric-font  normal-text">
     {% if user.is_authenticated %}
-        <h1>You are already logged in.</h1>
+        <h1 class="text-center">You are already logged in.</h1>
     {% else %}
-     <h1 class="login_heading">login to continue...</h1>
-
-        {% if form.eroors %}
-            <p>Username and password did not match. Please try again.</p>
-        {% endif %}
+     <h1 class="text-center login_heading">login to continue...</h1>
 
         <!--
         If form has error it shows this part of site,
         in form tag we don't need 'blog:' becouse templates folder is not at project level
         -->
-
+    <div class="register-form">
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                     {{ form.as_p }}
@@ -23,11 +19,17 @@
 
                 <input type="hidden" name="next" value="{{ next }}"> <!-- next is getting supplied by login view -->
 
+                {% if form.eroors %}
+                    <p>Username and password did not match. Please try again.</p>
+                {% endif %}
+
             </form>
-        <div class="mt-5 ">
+    </div>
+        <div class="mt-5 text-center">
             <h2 class="mb-5">Don't have account yet?</h2>
             <a href="{% url 'register'%}"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/white-plus.png"> Make account </button></a>
         </div>
+
     {% endif %}
 </div>
 

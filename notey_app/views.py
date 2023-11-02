@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
 from .models import Mood, Advice
-from .forms import RegisterForm
+from .forms import RegisterForm, CustomLoginForm
 # registration related
 from django.contrib.auth.views import LogoutView, LoginView
 from django.contrib.auth.decorators import login_required
@@ -32,6 +32,7 @@ class AboutView(TemplateView):
 
 
 class CustomLoginView(LoginView):
+    authentication_form = CustomLoginForm
     def get_success_url(self):
         return reverse_lazy('index')
 
