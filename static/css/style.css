@@ -10,7 +10,7 @@ body{
     background: #EEF2FF;
     padding: 0;
     margin: 0;
-    height: 100vh;
+    height: 100%;
 }
 
 .main-content-container {
@@ -149,8 +149,17 @@ nav .navbar-brand {
 }
 
 .hands-picture{
-    width: 57vw;
-    overflow: hidden;
+    width: 100%;
+    margin-top: 10vh;
+
+}
+
+.hands-pic-restrict{
+    width: 59vw;
+    overflow: clip;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
 }
 
 /*
@@ -197,7 +206,7 @@ About css
 
 .left-strip{
     margin:0;
-    padding: 8%;
+    padding: 8% 8% 1% 8%;
     background: #E5EBFF;
     width: 55vw;
 }
@@ -213,6 +222,7 @@ About css
     width: 45vw;
     height: 100%;
 }
+
 
 .normal-button-basic{
     padding: 0rem 4rem;
