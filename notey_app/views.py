@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
 from .models import Mood, Advice
+from .forms import RegisterForm
 # registration related
 from django.contrib.auth.views import LogoutView, LoginView
 from django.contrib.auth.decorators import login_required
@@ -81,3 +82,20 @@ class SaveMoodView(LoginRequiredMixin, View):
                                'mood_image_filename': mood_image_filename})
 
             return render(request, 'notey_app/mood.html')
+
+
+def sign_up(request):
+    if request.method == 'GET':
+        form = RegisterForm()
+        return render(request, 'registration/registration.html', {'form': form})
+
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            messages.success(request, 'You have singed up successfully.')
+            login(request, user)
+            return redirect('index')
+        else:
+            return render(request, 'registration/registration.html', {'form': form})

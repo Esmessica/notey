@@ -1,0 +1,31 @@
+{% extends "notey_app/base.html" %}
+
+{% block body_block %}
+
+     <div class="color_text patric-font normal-text register-form">
+
+          <form method="POST" novalidate>
+              {% csrf_token %}
+              <h1 class="text-center mt-5">Sign Up</h1>
+
+                  <div class="">
+                        {% for field in form %}
+                            <p>
+                                {% if field.errors %}
+                                <ul class="errorlist">
+                                    {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                                {{ field.label_tag }} {{ field }}
+                            </p>
+                            {% endfor %}
+                  </div>
+
+              <a href="#"><button type="submit" class="normal-button-basic button-hvr smaller-btn mt-5"> REGISTER </button></a>
+          </form>
+
+     </div>
+
+{% endblock %}

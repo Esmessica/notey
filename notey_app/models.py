@@ -10,7 +10,7 @@ from ckeditor.fields import RichTextField
 class Note(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
     # By default takes timezone from settings.py
-    category = models.TextField
+    category = models.TextField(max_length="120")
     title = models.CharField(max_length=225)
     text = RichTextField(blank=True, null=True)
 

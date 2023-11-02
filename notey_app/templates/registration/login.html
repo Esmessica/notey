@@ -19,14 +19,14 @@
             <form method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
                     {{ form.as_p }}
-                <a href="#"><button type="submit" class="normal-button-basic button-hvr smaller-btn mt-5"> LOGIN </button></a>
+                <a href="login"><button type="submit" class="normal-button-basic button-hvr smaller-btn mt-5"> LOGIN </button></a>
 
                 <input type="hidden" name="next" value="{{ next }}"> <!-- next is getting supplied by login view -->
 
             </form>
         <div class="mt-5 ">
             <h2 class="mb-5">Don't have account yet?</h2>
-            <a href="#"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/white-plus.png"> Make account </button></a>
+            <a href="{% url 'register'%}"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/white-plus.png"> Make account </button></a>
         </div>
     {% endif %}
 </div>

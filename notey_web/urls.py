@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('notey_app.urls')),
     path('login/', n_views.CustomLoginView.as_view(), name='login'),
     path('logout/', n_views.CustomLogoutView.as_view(), name='logout'),
+    path('register/', n_views.sign_up, name='register')
 ]
