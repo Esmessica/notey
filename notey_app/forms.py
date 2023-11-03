@@ -7,8 +7,8 @@ from .models import Note
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label="name")
     email = forms.EmailField(label="email")
-    password1 = forms.CharField(label="password")
-    password2 = forms.CharField(label="re-enter password")
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Re-enter Password", widget=forms.PasswordInput)
 
     class Meta:
         model = User
