@@ -3,9 +3,9 @@
 {% block body_block %}
 
     <div class="color_text patric-font text-center normal-text d-grid gap-4">
-        <a href="#"><button class="normal-button-basic button-hvr mt-5"> <img class="plus" src="/static/icons/white-plus.png"> New note </button></a>
+        <a href="{% url 'notey_app:create_note' %}"><button class="normal-button-basic button-hvr mt-5"> <img class="plus" src="/static/icons/white-plus.png"> New note </button></a>
         <br>
-        <a href="#"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/edit.png"> My notes </button></a>
+        <a href="{% url 'notey_app:all_notes' %}"><button class="normal-button-basic button-hvr"> <img class="plus" src="/static/icons/edit.png"> My notes </button></a>
     </div>
 
 {% endblock %}

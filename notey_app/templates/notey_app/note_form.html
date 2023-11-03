@@ -1,0 +1,25 @@
+{% extends "notey_app/base.html" %}
+
+{% block body_block %}
+
+<div class="color_text patric-font text-center normal-text">
+
+
+    <h1>Note form hereE</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{form.media}}
+    <button type="submit" class="" name="button">Save</button>
+</div>
+
+<script>
+    var name= "{{ user.id }}";
+    document.getElementById("username_field").value = name;
+</script>
+
+<!--editable is class in form.py for medium editor -->
+<script>
+    var editor = new MediumEditor('.editable');
+</script>
+
+{% endblock %}

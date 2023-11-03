@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
-from .models import Mood, Advice
-from .forms import RegisterForm, CustomLoginForm
+from .models import Mood, Advice, Note
+from .forms import RegisterForm, CustomLoginForm, NoteForm
+from django.utils import timezone
 # registration related
 from django.contrib.auth.views import LogoutView, LoginView
 from django.contrib.auth.decorators import login_required
@@ -52,7 +53,7 @@ class MoodView(LoginRequiredMixin, TemplateView):
 
 class SaveMoodView(LoginRequiredMixin, View):
     login_url = 'login/'
-    redirect_field_name = 'notey_app/moodd_advice.html'  # redirect to detail view
+    redirect_field_name = 'notey_app/mood_advice.html'  # redirect to detail view
 
     def post(self, request):
         selected_mood = request.POST.get('mood')
@@ -75,7 +76,6 @@ class SaveMoodView(LoginRequiredMixin, View):
 
                 # Retrieve advice based on the selected mood
                 advice = Advice.objects.filter(mood_option=selected_mood).first()
-
 
                 return render(request, 'notey_app/mood_advice.html',
 
@@ -100,3 +100,53 @@ def sign_up(request):
             return redirect('index')
         else:
             return render(request, 'registration/registration.html', {'form': form})
+
+
+class NoteListView(LoginRequiredMixin, ListView):
+    login_url = 'login/'
+    redirect_field_name = 'notey_app/note_detail.html'  # redirect to detail view
+    model = Note
+
+    def get_queryset(self):
+        return Note.objects.order_by('-create_date')
+
+    """
+
+    with get query set - set SQL query in model. 
+    Grab post model.all objects and filter them based on condition.
+    --lte=less than or equal to current time and order them based by curent date (the dash means DESC order
+
+    """
+
+
+class CreateNoteView(LoginRequiredMixin, CreateView):
+    login_url = 'login/'
+    redirect_field_name = 'notey_app/my_note.html'           # redirect to detail view
+    form_class = NoteForm
+    # mixin require those above
+    model = Note
+
+
+class NoteUpdateView(LoginRequiredMixin, UpdateView):
+    login_url = 'login/'
+    redirect_field_name = 'notey_app/my_note.html'         # redirect to detail view
+    form_class = NoteForm
+    # mixin require those above
+    model = Note
+
+
+class NoteDeleteView(LoginRequiredMixin, DeleteView):
+    model = Note
+    success_url = reverse_lazy('all_notes')
+
+
+class NoteDetailView(DetailView):
+    model = Note
+    template_name = 'notey_app/note_detail.html'
+
+
+def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    user = self.request.user
+
+    return context

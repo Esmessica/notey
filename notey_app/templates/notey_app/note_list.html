@@ -1,0 +1,27 @@
+{% extends "notey_app/base.html" %}
+
+{% block body_block %}
+
+<div class="color_text patric-font text-center normal-text">
+
+    <h1>All notes </h1>
+
+      {% for n in note %}
+        <div class="note">
+            <h1><a class="" href="{% url 'note_detail' pk=n.pk %}">{{ n.title }}</a></h1>
+
+            <div>
+                <p>Created on: {{ n.create_date|date:"D M Y" }}</p>
+            </div>
+
+        <a class="" href="{% url 'note_detail' pk=n.pk %}"></a>
+
+        </div>
+
+        {% endfor %}
+
+</div>
+
+{% endblock %}
+
+<!-- fix this, not showing anything RN -->

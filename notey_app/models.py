@@ -2,24 +2,20 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField
+
 
 # Create your models here.
 
 
 class Note(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
-    # By default takes timezone from settings.py
-    category = models.TextField(max_length="120")
+    category = models.TextField(max_length="60", null=True, blank=True)
     title = models.CharField(max_length=225)
-    text = RichTextField(blank=True, null=True)
+    text = models.TextField(blank=True, null=True)
 
-    def publish(self):
-        self.create_date = timezone.now()
-        self.save()
 
     def get_absolute_url(self):
-        return reverse('daily_advice')
+        return reverse('mood_advice')
     # redirects to daily advice based on mood
 
     def __str__(self):

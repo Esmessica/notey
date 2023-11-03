@@ -26,7 +26,7 @@ class NoteForm(forms.ModelForm):
         widgets = {
                 'category': forms.TextInput(attrs={'class': 'category-note'}),
                 'title': forms.TextInput(attrs={'class': 'title-note'}),
-                'text': forms.Textarea(attrs={'class': ' text-content'})
+                'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'})
         }
 
         """
@@ -37,3 +37,9 @@ class NoteForm(forms.ModelForm):
 class CustomLoginForm(AuthenticationForm):
     username = forms.CharField(label="name")
     password = forms.CharField(label="password", widget=forms.PasswordInput)
+
+
+# TODO make classes for fields and edit them in css,
+# TODO secure notes for user only
+# TODO styling for form, check all notes working
+# TODO save not working on add notes
