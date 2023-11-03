@@ -36,4 +36,4 @@ class NoteForm(forms.ModelForm):
 
 class CustomLoginForm(AuthenticationForm):
     username = forms.CharField(label="name")
-    password = forms.CharField(label="password")
+    password = forms.CharField(label="password", widget=forms.PasswordInput)
