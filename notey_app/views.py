@@ -121,7 +121,7 @@ class NoteListView(LoginRequiredMixin, ListView):
 
 class CreateNoteView(LoginRequiredMixin, CreateView):
     login_url = 'login/'
-    redirect_field_name = 'notey_app/my_note.html'           # redirect to detail view
+    redirect_field_name = 'notey_app/note_detail.html'           # redirect to detail view
     form_class = NoteForm
     # mixin require those above
     model = Note
@@ -129,7 +129,7 @@ class CreateNoteView(LoginRequiredMixin, CreateView):
 
 class NoteUpdateView(LoginRequiredMixin, UpdateView):
     login_url = 'login/'
-    redirect_field_name = 'notey_app/my_note.html'         # redirect to detail view
+    redirect_field_name = 'notey_app/note_detail.html'         # redirect to detail view
     form_class = NoteForm
     # mixin require those above
     model = Note

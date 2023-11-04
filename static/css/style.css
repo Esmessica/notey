@@ -359,3 +359,22 @@ form input{
 .register-form input{
     width: 100%;
 }
+
+.note-field{
+    background: white;
+    width: 100%;
+    border: none;
+    padding: 0.2rem 1rem;
+    border-radius: 5px;
+    color: #545454;
+}
+
+.note-text{
+    min-height: 40vh;
+    min-width: 50vw;
+
+}
+
+.form-field-s{
+    width: 20vw;
+}

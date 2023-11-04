@@ -15,7 +15,7 @@ class RegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-
+# TODO make author for notes field that uses User model
 class NoteForm(forms.ModelForm):
 
     class Meta():
@@ -24,9 +24,9 @@ class NoteForm(forms.ModelForm):
         # Fields that you should be able to edit while doin notes
 
         widgets = {
-                'category': forms.TextInput(attrs={'class': 'category-note'}),
-                'title': forms.TextInput(attrs={'class': 'title-note'}),
-                'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'})
+                'category': forms.TextInput(attrs={'class': 'category-note note-field form-field-s'}),
+                'title': forms.TextInput(attrs={'class': 'title-note note-field'}),
+                'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea note-text note-field'})
         }
 
         """
@@ -39,7 +39,6 @@ class CustomLoginForm(AuthenticationForm):
     password = forms.CharField(label="password", widget=forms.PasswordInput)
 
 
-# TODO make classes for fields and edit them in css,
 # TODO secure notes for user only
 # TODO styling for form, check all notes working
 # TODO save not working on add notes

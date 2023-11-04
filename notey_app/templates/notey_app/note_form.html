@@ -2,14 +2,27 @@
 
 {% block body_block %}
 
-<div class="color_text patric-font text-center normal-text">
+<div class="color_text patric-font  register-form normal-text">
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-field-s">
+            {{ form.category.label_tag }}
+            {{ form.category }}
+        </div>
+
+            {{ form.title.label_tag }}
+            {{ form.title }}
 
 
-    <h1>Note form hereE</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
-    {{form.media}}
-    <button type="submit" class="" name="button">Save</button>
+            {{ form.text.label_tag }}
+            {{ form.text }}
+
+
+        <div class="form-center">
+            <button type="submit" class="" name="button">Save</button>
+        </div>
+    </form>
 </div>
 
 <script>

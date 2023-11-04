@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-
+# TODO make author for notes field that uses User model
 
 class Note(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
@@ -15,7 +15,7 @@ class Note(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('mood_advice')
+        return reverse('notey_app:all_notes')
     # redirects to daily advice based on mood
 
     def __str__(self):
