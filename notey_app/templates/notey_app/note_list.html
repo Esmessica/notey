@@ -6,19 +6,33 @@
 
     <h1>All notes </h1>
 
-      {% for n in note %}
-        <div class="note">
-            <h1><a class="" href="{% url 'note_detail' pk=n.pk %}">{{ n.title }}</a></h1>
+     {% if user_has_notes %}
 
-            <div>
-                <p>Created on: {{ n.create_date|date:"D M Y" }}</p>
+          {% for n in object_list %}
+            <div class="note">
+                <h1><a class="" href="{% url 'notey_app:note_detail' pk=n.pk %}">{{ n.title }}</a></h1>
+
+                <p>Created on: {{ n.create_date|date:"j.n.Y" }}</p>
+
+                 <p>
+                     {% if n.text|length > 60 %}
+                        {{ n.text|slice:":60"|safe|linebreaksbr  }}...
+                    {% else %}
+                        {{ n.text|safe|linebreaksbr }}
+                    {% endif %}
+                 </p>
+
+
+            <a class="" href="{% url 'notey_app:note_detail' pk=n.pk %}"></a>
+
             </div>
+          {% endfor %}
 
-        <a class="" href="{% url 'note_detail' pk=n.pk %}"></a>
+    {% else %}
 
-        </div>
+        <p> You don't have any notes yet! </p>
 
-        {% endfor %}
+    {% endif %}
 
 </div>
 

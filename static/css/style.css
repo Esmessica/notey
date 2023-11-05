@@ -371,10 +371,16 @@ form input{
 
 .note-text{
     min-height: 40vh;
-    min-width: 50vw;
+    width: 50vw;
 
 }
 
 .form-field-s{
-    width: 20vw;
+   width: 22vw;
+   display: inline-block;
+}
+
+.one-row{
+    display: flex;
+    justify-content: space-between;
 }

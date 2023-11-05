@@ -11,7 +11,7 @@ urlpatterns = [
     path('mood_advice/', views.SaveMoodView.as_view(), name='mood_advice'),
     path('note/', views.NoteListView.as_view(), name='all_notes'),
     path('note/add', views.CreateNoteView.as_view(), name='create_note'),
-    path('note/<int:pk>', views.NoteDetailView.as_view(), name='note_detail'),
+    path('note/<int:pk>/', views.NoteDetailView.as_view(), name='note_detail'),
     path('note/<int:pk>/edit', views.NoteUpdateView.as_view(), name='note_edit'),
     path('note/<int:pk>/delete', views.NoteDeleteView.as_view(), name='note_delete')
 ]

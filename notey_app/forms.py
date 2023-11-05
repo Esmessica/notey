@@ -2,6 +2,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 from django.contrib.auth.models import User
 from .models import Note
+from django.contrib.auth import get_user
+from django.forms.widgets import HiddenInput
 
 
 class RegisterForm(UserCreationForm):
@@ -20,10 +22,12 @@ class NoteForm(forms.ModelForm):
 
     class Meta():
         model = Note
-        fields = ('category', 'title', 'text')
+        fields = ('author', 'create_date', 'category', 'title', 'text')
         # Fields that you should be able to edit while doin notes
 
         widgets = {
+
+                'create_date': forms.DateInput(attrs={'type': 'date'}),
                 'category': forms.TextInput(attrs={'class': 'category-note note-field form-field-s'}),
                 'title': forms.TextInput(attrs={'class': 'title-note note-field'}),
                 'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea note-text note-field'})
@@ -32,6 +36,17 @@ class NoteForm(forms.ModelForm):
         """
         widgets sets class for css, allows to edit content via class we set here
         """
+
+    def __init__(self, *args, **kwargs):
+        # Get the currently logged-in user from the form's kwargs
+        user = kwargs.pop('user', None)
+        super(NoteForm, self).__init__(*args, **kwargs)
+
+        # Set the 'author' field to the logged-in user
+        if user:
+            self.fields['author'].initial = user
+            self.fields['author'].widget = forms.HiddenInput()
+
 
 
 class CustomLoginForm(AuthenticationForm):

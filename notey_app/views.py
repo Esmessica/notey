@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import (TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
 from .models import Mood, Advice, Note
 from .forms import RegisterForm, CustomLoginForm, NoteForm
@@ -107,15 +107,21 @@ class NoteListView(LoginRequiredMixin, ListView):
     redirect_field_name = 'notey_app/note_detail.html'  # redirect to detail view
     model = Note
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        # Check if the user has any notes
+        user_notes = Note.objects.filter(author=user)
+        context['user_has_notes'] = user_notes.exists()
+        return context
+
     def get_queryset(self):
-        return Note.objects.order_by('-create_date')
+        # Filter notes by the currently logged-in user
+        return Note.objects.filter(author=self.request.user).order_by('-create_date')
 
     """
-
     with get query set - set SQL query in model. 
     Grab post model.all objects and filter them based on condition.
-    --lte=less than or equal to current time and order them based by curent date (the dash means DESC order
-
     """
 
 
@@ -126,6 +132,15 @@ class CreateNoteView(LoginRequiredMixin, CreateView):
     # mixin require those above
     model = Note
 
+    def form_valid(self, form):
+        # Set the author to the currently logged-in user
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        # Redirect to the detail view of the newly created note
+        return reverse('notey_app:note_detail', kwargs={'pk': self.object.pk})
+
 
 class NoteUpdateView(LoginRequiredMixin, UpdateView):
     login_url = 'login/'
@@ -134,15 +149,29 @@ class NoteUpdateView(LoginRequiredMixin, UpdateView):
     # mixin require those above
     model = Note
 
+    def form_valid(self, form):
+        # Retrieve the existing note by its primary key
+        note = Note.objects.get(pk=self.kwargs['pk'])
+        # Update the fields based on the submitted form data
+        note.title = form.cleaned_data['title']
+        note.text = form.cleaned_data['text']
+        # Save the updated note
+        note.save()
+        return redirect('notey_app:note_detail', pk=note.pk)
+
 
 class NoteDeleteView(LoginRequiredMixin, DeleteView):
     model = Note
-    success_url = reverse_lazy('all_notes')
+    success_url = reverse_lazy('notey_app:all_notes')
 
 
 class NoteDetailView(DetailView):
     model = Note
     template_name = 'notey_app/note_detail.html'
+
+    def get_queryset(self):
+        # Filter notes by the currently logged-in user
+        return Note.objects.filter(author=self.request.user)
 
 
 def get_context_data(self, **kwargs):

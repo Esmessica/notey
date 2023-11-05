@@ -4,9 +4,17 @@
 
 <div class="color_text patric-font text-center normal-text">
 
-    <h1>NOTE DETAIL GOES HERE</h1>
+    <h1>NOTE DETAIL</h1>
 
+    <a href="{% url 'notey_app:all_notes' %}">Back to all my notes</a>
+    <div class="note">
+        <h1>{{ object.title }}</h1>
+        <p>Created on: {{ object.create_date|date:"j.n.Y" }}</p>
+        <p>{{ object.text|safe|linebreaksbr }}</p>
 
+        <a class="" href="{% url 'notey_app:note_delete' pk=object.pk %}">Delete</a>
+        <a class="" href="{% url 'notey_app:note_edit' pk=object.pk %}">Edit Note</a>
+    </div>
 
 </div>
 

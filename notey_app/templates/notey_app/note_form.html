@@ -2,13 +2,21 @@
 
 {% block body_block %}
 
-<div class="color_text patric-font  register-form normal-text">
+<div class="color_text patric-font register-form normal-text">
 
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
-        <div class="form-field-s">
-            {{ form.category.label_tag }}
-            {{ form.category }}
+
+        <div class="one-row">
+            <div class="form-field-s">
+                {{ form.category.label_tag }}
+                {{ form.category }}
+            </div>
+            <div class="form-field-s">
+                {{ form.create_date.label_tag }}
+                {{ form.create_date }}
+            </div>
+
         </div>
 
             {{ form.title.label_tag }}

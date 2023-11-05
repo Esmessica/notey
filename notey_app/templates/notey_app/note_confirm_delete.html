@@ -6,7 +6,13 @@
 
     <h1>CONFIRM DELETE</h1>
 
-
+    <form method="post">
+        {% csrf_token %}
+        <p class="bigger-text py-4">Are you sure you want to delete {{ object }} note?</p>
+        <!-- the 'object' is created automatically by deleting -->
+        <input type="submit" class="" value="Confirm">
+        <a href="{% url 'notey_app:note_detail' pk=object.pk %}" class="">Cancel</a>
+    </form>
 
 </div>
 

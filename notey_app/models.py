@@ -9,9 +9,10 @@ from django.contrib.auth.models import User
 
 class Note(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
-    category = models.TextField(max_length="60", null=True, blank=True)
+    category = models.CharField(max_length=100)
     title = models.CharField(max_length=225)
     text = models.TextField(blank=True, null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
 
     def get_absolute_url(self):
