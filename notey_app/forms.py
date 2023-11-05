@@ -54,6 +54,6 @@ class CustomLoginForm(AuthenticationForm):
     password = forms.CharField(label="password", widget=forms.PasswordInput)
 
 
-# TODO secure notes for user only
+
 # TODO styling for form, check all notes working
-# TODO save not working on add notes
+
