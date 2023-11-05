@@ -25,12 +25,19 @@ class NoteForm(forms.ModelForm):
         fields = ('author', 'create_date', 'category', 'title', 'text')
         # Fields that you should be able to edit while doin notes
 
+        labels = {
+            'create_date': 'date',
+            'category': 'category',
+            'title': 'title',
+            'text': 'text',
+            }
+
         widgets = {
 
-                'create_date': forms.DateInput(attrs={'type': 'date'}),
-                'category': forms.TextInput(attrs={'class': 'category-note note-field form-field-s'}),
-                'title': forms.TextInput(attrs={'class': 'title-note note-field'}),
-                'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea note-text note-field'})
+            'create_date': forms.DateInput(attrs={'type': 'date'}),
+            'category': forms.TextInput(attrs={'class': 'category-note note-field form-field-s'}),
+            'title': forms.TextInput(attrs={'class': 'title-note note-field'}),
+            'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea note-text note-field'})
         }
 
         """
