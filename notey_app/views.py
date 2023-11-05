@@ -14,6 +14,8 @@ from django.views import View
 from django.contrib import messages
 
 # Create your views here.
+# TODO make mood stored for day, if that day mood was selected, load advices instead
+# TODO make image show at create form
 
 class CustomLogoutView(LogoutView):
     template_name = 'registration/logout.html'
@@ -127,9 +129,8 @@ class NoteListView(LoginRequiredMixin, ListView):
 
 class CreateNoteView(LoginRequiredMixin, CreateView):
     login_url = 'login/'
-    redirect_field_name = 'notey_app/note_detail.html'           # redirect to detail view
+    redirect_field_name = 'notey_app/note_detail.html'
     form_class = NoteForm
-    # mixin require those above
     model = Note
 
     def form_valid(self, form):

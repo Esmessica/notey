@@ -384,3 +384,19 @@ form input{
     display: flex;
     justify-content: space-between;
 }
+
+.note-form{
+    margin-top: 3vh;
+}
+
+.save-check-btn{
+    width: 4.5rem;
+}
+
+.area-devide{
+    display: flex;
+    align-items: flex-end;
+}
+
+
+

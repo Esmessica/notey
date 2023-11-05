@@ -4,32 +4,39 @@
 
 <div class="color_text patric-font register-form normal-text">
 
-    <form method="POST">
+    <form class="note-form" method="POST">
         {% csrf_token %}
+            <div class="area-devide">
 
-        <div class="one-row">
-            <div class="form-field-s">
-                {{ form.category.label_tag }}
-                {{ form.category }}
+                <div class="area-1">
+                     <img class="eewee-png" src="/static/ewe/fine.PNG" alt="Eewee bunny playfull">
+                </div>
+
+                <div class="area-2">
+                    <div class="one-row">
+                        <div class="form-field-s">
+                            {{ form.category.label_tag }}
+                            {{ form.category }}
+                        </div>
+                        <div class="form-field-s">
+                            {{ form.create_date.label_tag }}
+                            {{ form.create_date }}
+                        </div>
+                    </div>
+
+                    {{ form.title.label_tag }}
+                    {{ form.title }}
+
+                    {{ form.text.label_tag }}
+                    {{ form.text }}
+                    </div>
+
+                <div class="area-3">
+                    <input type="hidden" id="username_field" value="{{ user.id }}">
+                    <button type="submit" name="button"><img class="save-check-btn" src="/static/icons/btn.png" alt="check-save button"></button>
+                </div>
+
             </div>
-            <div class="form-field-s">
-                {{ form.create_date.label_tag }}
-                {{ form.create_date }}
-            </div>
-
-        </div>
-
-            {{ form.title.label_tag }}
-            {{ form.title }}
-
-
-            {{ form.text.label_tag }}
-            {{ form.text }}
-
-
-        <div class="form-center">
-            <button type="submit" class="" name="button">Save</button>
-        </div>
     </form>
 </div>
 
