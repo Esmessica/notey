@@ -15,7 +15,6 @@ from django.views import View
 from django.contrib import messages
 
 # Create your views here.
-# TODO make mood stored for day, if that day mood was selected, load advices instead
 # TODO make image show at create form
 
 class CustomLogoutView(LogoutView):
