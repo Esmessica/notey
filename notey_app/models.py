@@ -42,6 +42,8 @@ class Mood(models.Model):
         ('grumpy', 'grumpy')
     )
     my_mood = models.CharField(max_length=25, choices=MOOD_CHOICES)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    mood_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.my_mood

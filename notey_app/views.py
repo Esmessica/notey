@@ -9,6 +9,7 @@ from django.contrib.auth.views import LogoutView, LoginView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
+from datetime import date
 
 from django.views import View
 from django.contrib import messages
@@ -27,8 +28,21 @@ class CustomLogoutView(LogoutView):
 
 
 def index(request):
-    return render(request, 'notey_app/home.html')
+    today_date = date.today()
+    context = {'today_date': today_date}
+    def fetch_mood_for_user(user):
+        # Get the user's mood for today
+        today_date = date.today()
+        mood = Mood.objects.filter(author=user, mood_date=today_date).first()
 
+        return mood.my_mood if mood else None
+
+    if request.user.is_authenticated:
+        # Add mood data to the context if the user is authenticated
+        # Replace the following line with the logic to fetch the mood for the user
+        context['mood'] = fetch_mood_for_user(request.user)
+
+    return render(request, 'notey_app/home.html', context)
 
 class AboutView(TemplateView):
     template_name = 'notey_app/about.html'
@@ -55,35 +69,48 @@ class MoodView(LoginRequiredMixin, TemplateView):
 
 class SaveMoodView(LoginRequiredMixin, View):
     login_url = 'login/'
-    redirect_field_name = 'notey_app/mood_advice.html'  # redirect to detail view
+
+    def get(self, request):
+        current_user = request.user
+
+        # Check if a mood was already selected today for the current user
+        existing_mood = Mood.objects.filter(author=current_user, mood_date=date.today()).first()
+
+        if existing_mood:
+            # Mood was already selected today, redirect to mood_advice.html
+            advice = Advice.objects.filter(mood_option=existing_mood.my_mood).first()
+            mood_image_filename = f"{existing_mood.my_mood}.PNG"
+            return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': existing_mood.my_mood, 'mood_image_filename': mood_image_filename})
+        else:
+            # No mood selected today, display the mood.html (mood form) template
+            return render(request, 'notey_app/mood.html')
 
     def post(self, request):
         selected_mood = request.POST.get('mood')
+        current_user = request.user
+
+        # Check if a mood was already selected today for the current user
+        existing_mood = Mood.objects.filter(author=current_user, mood_date=date.today()).first()
 
         if selected_mood:
-            # Create and save the Mood object with the selected mood
-            mood = Mood.objects.create(my_mood=selected_mood)
+            if existing_mood:
+                # If a mood was already selected today, update it
+                existing_mood.my_mood = selected_mood
+                existing_mood.save()
+            else:
+                # If no mood was selected today, create a new Mood object
+                mood = Mood.objects.create(my_mood=selected_mood, author=current_user, mood_date=date.today())
             messages.success(request, 'Saved')
         else:
             messages.error(request, 'Something went wrong.')
 
-        if request.method == 'POST':
-            selected_mood = request.POST.get('mood')
-            if selected_mood:
-                # Retrieve advice based on the selected mood
-                advice = Advice.objects.filter(mood_option=selected_mood).first()
-
-                # Construct the image filename based on the selected mood
-                mood_image_filename = f"{selected_mood}.PNG"
-
-                # Retrieve advice based on the selected mood
-                advice = Advice.objects.filter(mood_option=selected_mood).first()
-
-                return render(request, 'notey_app/mood_advice.html',
-
-                              {'advice': advice, 'selected_mood': selected_mood,
-                               'mood_image_filename': mood_image_filename})
-
+        if existing_mood:
+            # Mood was selected today, redirect to mood_advice.html
+            advice = Advice.objects.filter(mood_option=existing_mood.my_mood).first()
+            mood_image_filename = f"{existing_mood.my_mood}.PNG"
+            return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': existing_mood.my_mood, 'mood_image_filename': mood_image_filename})
+        else:
+            # No mood selected today, display the mood.html (mood form) template
             return render(request, 'notey_app/mood.html')
 
 

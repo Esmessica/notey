@@ -30,7 +30,13 @@
 
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'notey_app:notes' %}">notes</a></li>
-                    <li><a href="{% url 'notey_app:mood' %}">mood</a> </li>
+
+                    {% if mood %}
+                        <li><a href="{% url 'notey_app:mood_advice' %}">advice mood</a> </li>
+                    {% else %}
+                        <li><a href="{% url 'notey_app:mood' %}"> mood</a> </li>
+                    {% endif %}
+
                         <form method="post" action="{% url 'logout' %}">
                           {% csrf_token %}
                           <button type="submit">Logout</button>
