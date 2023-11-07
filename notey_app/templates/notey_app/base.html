@@ -31,7 +31,7 @@
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'notey_app:notes' %}">notes</a></li>
 
-                    {% if mood.mood_date == today_date or mood %}
+                    {% if mood == 'mood_advice' %}
                         <li><a href="{% url 'notey_app:mood_advice' %}">mood advice</a> </li>
                     {% else %}
                         <li><a href="{% url 'notey_app:mood' %}"> mood</a> </li>

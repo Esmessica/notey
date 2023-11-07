@@ -29,18 +29,6 @@ class CustomLogoutView(LogoutView):
 def index(request):
     today_date = date.today()
     context = {'today_date': today_date}
-    def fetch_mood_for_user(user):
-        # Get the user's mood for today
-        today_date = date.today()
-        mood = Mood.objects.filter(author=user, mood_date=today_date).first()
-
-        return mood.my_mood if mood else None
-
-    if request.user.is_authenticated:
-        # Add mood data to the context if the user is authenticated
-        # Replace the following line with the logic to fetch the mood for the user
-        context['mood'] = fetch_mood_for_user(request.user)
-
     return render(request, 'notey_app/home.html', context)
 
 class AboutView(TemplateView):
@@ -65,7 +53,6 @@ class MoodView(LoginRequiredMixin, TemplateView):
         context['mood_choices'] = Mood.MOOD_CHOICES
         return context
 
-
 class SaveMoodView(LoginRequiredMixin, View):
     login_url = 'login/'
 
@@ -82,7 +69,7 @@ class SaveMoodView(LoginRequiredMixin, View):
             return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': existing_mood.my_mood, 'mood_image_filename': mood_image_filename})
         else:
             # No mood selected today, display the mood.html (mood form) template
-            return render(request, 'notey_app/mood.html')
+            return render(request, 'notey_app/mood.html', {'selected_mood': ''})
 
     def post(self, request):
         selected_mood = request.POST.get('mood')
@@ -103,14 +90,12 @@ class SaveMoodView(LoginRequiredMixin, View):
         else:
             messages.error(request, 'Something went wrong.')
 
-        if existing_mood:
-            # Mood was selected today, redirect to mood_advice.html
-            advice = Advice.objects.filter(mood_option=existing_mood.my_mood).first()
-            mood_image_filename = f"{existing_mood.my_mood}.PNG"
-            return render(request, 'notey_app/mood_advice.html', {'advice': advice, 'selected_mood': existing_mood.my_mood, 'mood_image_filename': mood_image_filename})
-        else:
-            # No mood selected today, display the mood.html (mood form) template
-            return render(request, 'notey_app/mood.html')
+            # Handle displaying the form to select a mood when there's no mood for the day
+            mood_choices = Mood.MOOD_CHOICES  # Replace with your actual mood choices
+            return render(request, 'notey_app/mood.html', {'mood_choices': mood_choices})
+
+        # Redirect after a successful form submission
+        return redirect('notey_app:mood_advice')
 
 
 def sign_up(request):
