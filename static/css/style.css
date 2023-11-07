@@ -398,5 +398,85 @@ form input{
     align-items: flex-end;
 }
 
+.back-icon{
+    width: 4rem;
+}
 
+.cross-s-icon{
+    width: 2rem;
+}
 
+.base-container {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1fr;
+  grid-template-rows: 1fr;
+  padding: 2rem 0 5rem 0;
+}
+
+.note{
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+}
+
+.button-pink{
+    background: #EA7D7D;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    border-radius: 40px;
+    margin: 1rem 3rem 1rem 0;
+}
+
+.white-hvr:hover{
+    color: white;
+     text-shadow: 0px 0px 2px rgb(255, 255, 255);
+    -webkit-transition: text-shadow 0.5s ease-out;
+    -moz-transition: text-shadow 0.5s ease-out;
+    -o-transition: text-shadow 0.5s ease-out;
+    transition: text-shadow 0.5s ease-out;
+}
+
+.button-blue{
+    background: #8AAEFF;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    border-radius: 40px;
+    margin: 1rem 3rem 1rem 0;
+    transition: color 0.4s ease;
+}
+
+.form-delete{
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+    align-items: center;
+}
+
+.form-delete-content{
+    background: white;
+    padding: 2rem 4rem;
+    border-radius: 20px;
+}
+
+.button-edit{
+    background: #8AAEFF;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    border-radius: 40px;
+    transition: color 0.4s ease;
+}
+
+.hover-pink{
+    color:inherit;
+    transition: color 0.4s ease;
+}
+
+.hover-pink:hover{
+    color: #E97D85;
+}

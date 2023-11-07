@@ -2,18 +2,37 @@
 
 {% block body_block %}
 
-<div class="color_text patric-font text-center normal-text">
+<div class="color_text patric-font base-container normal-text">
+    <div>
+        <a class="hover-pink ms-5 text-decoration-none" href="{% url 'notey_app:all_notes' %}">
+            <img class="back-icon me-2 " src="/static/icons/back-pink.png" alt="Go back to all notes arrow">
+                Back to all my notes
+        </a>
+    </div>
 
-    <h1>NOTE DETAIL</h1>
 
-    <a href="{% url 'notey_app:all_notes' %}">Back to all my notes</a>
     <div class="note">
-        <h1>{{ object.title }}</h1>
-        <p>Created on: {{ object.create_date|date:"j.n.Y" }}</p>
+
+        <div class="gr-line">
+            <p class="text-start">Created on: {{ object.create_date|date:"j.n.Y" }}</p>
+            <h1 class="text-center">{{ object.title }}</h1>
+        </div>
+
         <p>{{ object.text|safe|linebreaksbr }}</p>
 
-        <a class="" href="{% url 'notey_app:note_delete' pk=object.pk %}">Delete</a>
-        <a class="" href="{% url 'notey_app:note_edit' pk=object.pk %}">Edit Note</a>
+        <div class="bar-button text-center ">
+
+            <a class="button-pink white-hvr" href="{% url 'notey_app:note_delete' pk=object.pk %}">
+                <img class="cross-s-icon me-2 mb-1" src="/static/icons/cross-white.png" alt="delete cross icon">
+                    delete
+            </a>
+
+            <a class="button-edit white-hvr" href="{% url 'notey_app:note_edit' pk=object.pk %}">
+                <img class="cross-s-icon me-2 mb-1" src="/static/icons/edit.png" alt="delete cross icon">
+                    edit note
+            </a>
+        </div>
+
     </div>
 
 </div>
