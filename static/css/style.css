@@ -406,6 +406,10 @@ form input{
     width: 2rem;
 }
 
+.bar-button{
+    margin: 5rem 0 2rem 0;
+}
+
 .base-container {
   display: grid;
   grid-template-columns: 1fr 2.5fr 1fr;
@@ -480,3 +484,39 @@ form input{
 .hover-pink:hover{
     color: #E97D85;
 }
+
+thead{
+    background: #E8E8E8;
+}
+
+tbody{
+    background: white;
+}
+
+.gr-line{
+    padding: 0 0 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 4px solid #e8e8e8;
+
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: #f5f5f5;
+}
+
+.note-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text horizontally */
+}
+
+table {
+  margin: 0 auto; /* Center the table horizontally */
+  width: 80vw;
+}
+

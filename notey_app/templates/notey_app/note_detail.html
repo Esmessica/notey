@@ -14,11 +14,13 @@
     <div class="note">
 
         <div class="gr-line">
-            <p class="text-start">Created on: {{ object.create_date|date:"j.n.Y" }}</p>
+            <p class="text-start fs-4">Created on: {{ object.create_date|date:"j.n.Y" }}</p>
             <h1 class="text-center">{{ object.title }}</h1>
         </div>
 
-        <p>{{ object.text|safe|linebreaksbr }}</p>
+        <p>
+            {{ object.text|safe|linebreaksbr }}
+        </p>
 
         <div class="bar-button text-center ">
 

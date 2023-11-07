@@ -2,40 +2,62 @@
 
 {% block body_block %}
 
-<div class="color_text patric-font text-center normal-text">
+<div class="color_text patric-font normal-text">
+    <div class="note-list"></div>
+    <h1 class=" text-center mt-5 mb-3"> {{user.username}}s notes </h1>
 
-    <h1>All notes </h1>
+    {% if user_has_notes %}
+         <table>
+                  <thead class="gray-zone text-center container">
+                    <tr >
+                        <th class="head-table col-md-auto">category</th>
+                        <th class="head-table col-8">title</th>
+                        <th class="head-table col">date</th>
+                    </tr>
+                  </thead>
 
-     {% if user_has_notes %}
-
-          {% for n in object_list %}
-            <div class="note">
-                <h1><a class="" href="{% url 'notey_app:note_detail' pk=n.pk %}">{{ n.title }}</a></h1>
-
-                <p>Created on: {{ n.create_date|date:"j.n.Y" }}</p>
-
-                 <p>
-                     {% if n.text|length > 60 %}
-                        {{ n.text|slice:":60"|safe|linebreaksbr  }}...
-                    {% else %}
-                        {{ n.text|safe|linebreaksbr }}
-                    {% endif %}
-                 </p>
-
-
-            <a class="" href="{% url 'notey_app:note_detail' pk=n.pk %}"></a>
-
-            </div>
-          {% endfor %}
+                <tbody>
+                 {% for n in object_list %}
+                     <tr class="clickable-row" data-href="{% url 'notey_app:note_detail' pk=n.pk %}">
+                        <td>
+                                {% if n.category|length > 40 %}
+                                    {{ n.category|slice:":40"|safe|linebreaksbr  }}...
+                                {% else %}
+                                    {{ n.category|safe|linebreaksbr }}
+                                {% endif %}
+                         </td>
+                         <td>
+                            <h2>
+                                {% if n.title|length > 70 %}
+                                    {{ n.title|slice:":70"|safe|linebreaksbr  }}...
+                                {% else %}
+                                    {{ n.title|safe|linebreaksbr }}
+                                {% endif %}
+                            </h2>
+                         </td>
+                          <td>
+                            {{ n.create_date|date:"j.n.Y" }}
+                          </td>
+                     </tr>
+                 </tbody>
+                {% endfor %}
+         </table>
 
     {% else %}
-
         <p> You don't have any notes yet! </p>
-
     {% endif %}
 
 </div>
 
-{% endblock %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const rows = document.querySelectorAll(".clickable-row");
+    rows.forEach(function (row) {
+      row.addEventListener("click", function () {
+        window.location.href = this.dataset.href;
+      });
+    });
+  });
+</script>
 
-<!-- fix this, not showing anything RN -->
+{% endblock %}
