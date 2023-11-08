@@ -506,6 +506,7 @@ tbody{
 
 .clickable-row:hover {
   background-color: #f5f5f5;
+  color: #8AAEFF;
 }
 
 .note-list {
@@ -517,6 +518,33 @@ tbody{
 
 table {
   margin: 0 auto; /* Center the table horizontally */
-  width: 80vw;
+  max-width: 70vw;
 }
 
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background: none;
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+
+}
+
+#myBtn:hover {
+    filter: drop-shadow(0px 0px 19px #ffff);
+}
+
+.back-top-icon{
+    width: 5rem;
+}
+
+.add-small{
+    width:3rem;
+    border: none;
+    background: none;
+}

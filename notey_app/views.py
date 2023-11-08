@@ -16,6 +16,7 @@ from django.contrib import messages
 
 # Create your views here.
 # TODO make image show at create form
+# TODO make notes ordered by date
 
 class CustomLogoutView(LogoutView):
     template_name = 'registration/logout.html'

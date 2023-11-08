@@ -4,7 +4,7 @@
 
 <div class="color_text patric-font normal-text">
     <div class="note-list"></div>
-    <h1 class=" text-center mt-5 mb-3"> {{user.username}}s notes </h1>
+    <h1 class=" text-center mt-5 mb-4"> {{user.username}}s notes </h1>
 
     {% if user_has_notes %}
          <table>
@@ -12,44 +12,53 @@
                     <tr >
                         <th class="head-table col-md-auto">category</th>
                         <th class="head-table col-8">title</th>
-                        <th class="head-table col">date</th>
+                        <th class="head-table col ">date</th>
                     </tr>
                   </thead>
 
                 <tbody>
                  {% for n in object_list %}
                      <tr class="clickable-row" data-href="{% url 'notey_app:note_detail' pk=n.pk %}">
-                        <td>
-                                {% if n.category|length > 40 %}
-                                    {{ n.category|slice:":40"|safe|linebreaksbr  }}...
+                        <td class="ps-4">
+                                {% if n.category|length > 20 %}
+                                    {{ n.category|slice:":20"|safe|linebreaksbr  }}...
                                 {% else %}
                                     {{ n.category|safe|linebreaksbr }}
                                 {% endif %}
                          </td>
-                         <td>
+                         <td class="ps-4">
                             <h2>
-                                {% if n.title|length > 70 %}
-                                    {{ n.title|slice:":70"|safe|linebreaksbr  }}...
+                                {% if n.title|length > 50 %}
+                                    {{ n.title|slice:"50"|safe|linebreaksbr  }}...
                                 {% else %}
                                     {{ n.title|safe|linebreaksbr }}
                                 {% endif %}
                             </h2>
                          </td>
-                          <td>
+                          <td class="text-center pe-4">
                             {{ n.create_date|date:"j.n.Y" }}
                           </td>
                      </tr>
                  </tbody>
                 {% endfor %}
          </table>
+         <button onclick="topFunction()" id="myBtn" title="Go to top"><img class="back-top-icon" src="/static/icons/back-top-pink.png" alt=" Go back on top of page"></button>
+
+    <a href="{% url 'notey_app:create_note' %}">
+        <button class="add-small">
+            <img class="add-small" src="/static/icons/add-blue.png" alt="add new note">
+        </button>
+    </a>
 
     {% else %}
         <p> You don't have any notes yet! </p>
     {% endif %}
 
+
 </div>
 
 <script>
+
   document.addEventListener("DOMContentLoaded", function () {
     const rows = document.querySelectorAll(".clickable-row");
     rows.forEach(function (row) {
@@ -58,6 +67,26 @@
       });
     });
   });
+
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 40px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 0) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 </script>
+
 
 {% endblock %}
