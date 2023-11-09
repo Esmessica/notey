@@ -6,49 +6,57 @@
     <div class="note-list"></div>
     <h1 class=" text-center mt-5 mb-4"> {{user.username}}s notes </h1>
 
-    {% if user_has_notes %}
-         <table>
-                  <thead class="gray-zone text-center container">
-                    <tr >
-                        <th class="head-table col-md-auto">category</th>
-                        <th class="head-table col-8">title</th>
-                        <th class="head-table col ">date</th>
-                    </tr>
-                  </thead>
+    <div class="base-container">
+        <div>
 
-                <tbody>
-                 {% for n in object_list %}
-                     <tr class="clickable-row" data-href="{% url 'notey_app:note_detail' pk=n.pk %}">
-                        <td class="ps-4">
-                                {% if n.category|length > 20 %}
-                                    {{ n.category|slice:":20"|safe|linebreaksbr  }}...
-                                {% else %}
-                                    {{ n.category|safe|linebreaksbr }}
-                                {% endif %}
-                         </td>
-                         <td class="ps-4">
-                            <h2>
-                                {% if n.title|length > 50 %}
-                                    {{ n.title|slice:"50"|safe|linebreaksbr  }}...
-                                {% else %}
-                                    {{ n.title|safe|linebreaksbr }}
-                                {% endif %}
-                            </h2>
-                         </td>
-                          <td class="text-center pe-4">
-                            {{ n.create_date|date:"j.n.Y" }}
-                          </td>
-                     </tr>
-                 </tbody>
-                {% endfor %}
-         </table>
-         <button onclick="topFunction()" id="myBtn" title="Go to top"><img class="back-top-icon" src="/static/icons/back-top-pink.png" alt=" Go back on top of page"></button>
+        </div>
+        {% if user_has_notes %}
+             <table>
+                      <thead class="gray-zone text-center container">
+                        <tr >
+                            <th class="head-table col-md-auto">category</th>
+                            <th class="head-table col-8">title</th>
+                            <th class="head-table col ">date</th>
+                        </tr>
+                      </thead>
 
+                    <tbody>
+                     {% for n in object_list %}
+                         <tr class="clickable-row" data-href="{% url 'notey_app:note_detail' pk=n.pk %}">
+                            <td class="ps-4">
+                                    {% if n.category|length > 20 %}
+                                        {{ n.category|slice:":20"|safe|linebreaksbr  }}...
+                                    {% else %}
+                                        {{ n.category|safe|linebreaksbr }}
+                                    {% endif %}
+                             </td>
+                             <td class="ps-4">
+                                <h2>
+                                    {% if n.title|length > 50 %}
+                                        {{ n.title|slice:"50"|safe|linebreaksbr  }}...
+                                    {% else %}
+                                        {{ n.title|safe|linebreaksbr }}
+                                    {% endif %}
+                                </h2>
+                             </td>
+                              <td class="text-center pe-4">
+                                {{ n.create_date|date:"j.n.Y" }}
+                              </td>
+                         </tr>
+                     </tbody>
+                    {% endfor %}
+             </table>
     <a href="{% url 'notey_app:create_note' %}">
         <button class="add-small">
             <img class="add-small" src="/static/icons/add-blue.png" alt="add new note">
         </button>
     </a>
+
+    </div>
+
+         <button onclick="topFunction()" id="myBtn" title="Go to top">
+             <img class="back-top-icon" src="/static/icons/back-top-pink.png" alt=" Go back on top of page">
+         </button>
 
     {% else %}
         <p> You don't have any notes yet! </p>

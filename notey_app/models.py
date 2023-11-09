@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-# TODO make author for notes field that uses User model
+
 
 class Note(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
