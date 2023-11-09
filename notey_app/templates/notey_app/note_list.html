@@ -46,11 +46,13 @@
                      </tbody>
                     {% endfor %}
              </table>
-    <a href="{% url 'notey_app:create_note' %}">
-        <button class="add-small">
-            <img class="add-small" src="/static/icons/add-blue.png" alt="add new note">
-        </button>
-    </a>
+        <div>
+            <button class="add-small">
+                <a href="{% url 'notey_app:create_note' %}">
+                    <img class="add-small" src="/static/icons/add-blue.png" alt="add new note">
+                </a>
+            </button>
+        </div>
 
     </div>
 

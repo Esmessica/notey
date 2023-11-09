@@ -17,7 +17,6 @@ class RegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-# TODO make author for notes field that uses User model
 class NoteForm(forms.ModelForm):
 
     class Meta():
@@ -33,13 +32,11 @@ class NoteForm(forms.ModelForm):
             }
 
         widgets = {
-
-            'create_date': forms.DateInput(attrs={'type': 'date'}),
+            'create_date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'category': forms.TextInput(attrs={'class': 'category-note note-field form-field-s'}),
             'title': forms.TextInput(attrs={'class': 'title-note note-field'}),
             'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea note-text note-field'})
         }
-
         """
         widgets sets class for css, allows to edit content via class we set here
         """

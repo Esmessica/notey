@@ -16,7 +16,6 @@ from django.contrib import messages
 
 # Create your views here.
 # TODO make image show at create form
-# TODO make notes ordered by date
 
 class CustomLogoutView(LogoutView):
     template_name = 'registration/logout.html'
@@ -53,6 +52,7 @@ class MoodView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context['mood_choices'] = Mood.MOOD_CHOICES
         return context
+
 
 class SaveMoodView(LoginRequiredMixin, View):
     login_url = 'login/'
