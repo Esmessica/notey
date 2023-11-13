@@ -1,3 +1,7 @@
+.mobile-nav-toggle {
+display: none;
+}
+
 body{
     font-family: 'Patrick Hand', cursive;
     background: #EEF2FF;
@@ -41,6 +45,7 @@ body{
 }
 
 nav {
+    display: flex;
     background-color: #8AAEFF;
     padding: 0.1rem 0 0.1rem 2vw;
     overflow: hidden;
@@ -53,7 +58,8 @@ nav {
 }
 
 .logo_nav{
-    max-height: 4rem;
+    margin: 0.5em 0 0.2rem 0.5em;
+    max-height: 4em;
 }
 
 form button {
