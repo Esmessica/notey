@@ -216,4 +216,43 @@
         font-size: 3rem;
     }
 
+    .normal-text{
+         font-size: 1.5rem;
+    }
+
+    .eewee-png{
+        width: 35vw;
+    }
+
+    .heading-meet{
+        font-size: 1.5rem;
+    }
+
+    .second-strip{
+        padding-top: 10vh;
+    }
+
+    .reg-text{
+        padding-top: 3rem;
+    }
+
+    /* LOGIN */
+
+    .btn-regigister-mobile{
+        font-size: 2rem;
+        padding: 0 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .plus{
+        padding: 0.8rem 1rem 0.8rem 0;
+    }
+
+    form button{
+        margin:  0 10vw 0 10vw;
+    }
+
+    .register-form input{
+         width: 80vw;
+    }
 }
