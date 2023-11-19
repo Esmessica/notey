@@ -5,13 +5,13 @@
     <div class="color_text patric-font text-center normal-text d-grid gap-4">
 
         <div class="horizontal-dark-strip">
-            <h1 class="">How are you feeling today, {{ user.username }}?</h1>
+            <h1 class="mood-greet">How are you feeling today, {{ user.username }}?</h1>
         </div>
 
-        <div class="">
+        <div >
             <img class="eewee-png  eewee-mood-title" src="/static/ewe/surprise.PNG" alt="Eewee bunny surpised">
 
-            <form  method="post" action="{% url 'notey_app:mood_advice' %}">
+            <form class="form-mood" method="post" action="{% url 'notey_app:mood_advice' %}">
                 {% csrf_token %}
 
                 <div class="form_mood">

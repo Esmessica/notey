@@ -319,4 +319,49 @@
     .logout-goodbye p{
         font-size: 2.1rem;
     }
+
+/* MOODS */
+
+    .horizontal-dark-strip{
+        padding: 2rem 3rem;
+        max-width: 100vw;
+    }
+
+    .horizontal-dark-strip h1{
+        font-size: 2rem;
+    }
+
+    .form-mood{
+        display: flex;
+        margin: 1rem;
+        align-items: center;
+    }
+
+    .form-mood select{
+        width: 50vw;
+        height: 3.5rem;
+    }
+
+    .form-mood option{
+        font-size: 2rem;
+    }
+
+    .form-mood button img{
+        margin: 0;
+        width: 3.5rem;
+    }
+
+    .form-mood button{
+        margin: 0 0 0.5rem 2rem;
+    }
+
+    .heading-meet{
+        padding-top: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .eewee-mood-title{
+        width: 50vw;
+    }
+
 }
