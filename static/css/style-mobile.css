@@ -207,9 +207,7 @@
 
     .second-strip{
         width: 80vw;
-
     }
-
 
     .normal-button-basic {
         padding: 0 3rem;
@@ -222,10 +220,13 @@
 
     .eewee-png{
         width: 35vw;
+        height: auto;
+        object-fit: contain;
     }
 
     .heading-meet{
         font-size: 1.5rem;
+        max-width: 100%;
     }
 
     .second-strip{
@@ -249,11 +250,40 @@
     }
 
     form button{
-        margin:  0 10vw 0 10vw;
+        margin: auto;
+    }
+
+    .register-form{
+      display: flex;
+      justify-content: center;
+    }
+
+    form ul li{
+        list-style: none;
+        font-size: 1.2rem;
+
+    }
+
+    form ul{
+        margin: 0 0 1rem 0;
+        padding: 0;
+    }
+
+    .register-form form{
+        width: 80vw;
     }
 
     .register-form input{
          width: 80vw;
+    }
+
+    .register-form button{
+        display: flex;
+        justify-content: center;
+    }
+
+    .register-form a{
+        text-decoration: none;
     }
 
 /* REGISTER */
@@ -262,5 +292,27 @@
         margin: 0 4vw 10vh 4vw;
         width: 80vw;
     }
+/* LOGOUT */
 
+    .logout_text{
+        font-size: 2rem;
+        margin: 0;
+        padding: 2rem 0;
+    }
+
+    .bunny-big{
+        width: 35vw;
+        height: auto;
+        object-fit: contain;
+        margin: 0 0 4rem 0;
+        padding: 0;
+    }
+
+    .logout-goodbye{
+        width: 75vw;
+    }
+
+    .logout-goodbye p{
+        font-size: 2.1rem;
+    }
 }
