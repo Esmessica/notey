@@ -335,7 +335,7 @@
     .form-mood{
         display: flex;
         margin: 1rem;
-        align-items: center;
+        justify-content: center;
     }
 
     .form-mood select{
@@ -385,4 +385,23 @@
         margin-bottom: 5rem;
      }
 
+/* Note form */
+
+    .area-devide{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+
+    .one-row{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    .note-text{
+        width: 73vh;
+    }
+
+/* Note detail*/
 }
