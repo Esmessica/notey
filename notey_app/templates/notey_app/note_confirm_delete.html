@@ -11,11 +11,11 @@
 
             <p class="bigger-text py-4">Are you sure you want to delete " {{ object }} " note?</p>
             <!-- the 'object' is created automatically by deleting -->
+            <div class="bar-button-del">
+                <input type="submit" class="button-blue white-hvr ms-0 me-4" value="Confirm">
 
-            <input type="submit" class="button-blue white-hvr ms-0 me-4" value="Confirm">
-
-            <a href="{% url 'notey_app:note_detail' pk=object.pk %}" class="button-pink white-hvr me-0 ms-4">Cancel</a>
-
+                <a href="{% url 'notey_app:note_detail' pk=object.pk %}" class="button-pink white-hvr me-0 ms-4">Cancel</a>
+            </div>
         </div>
 
     </form>
