@@ -28,19 +28,27 @@ body{
 }
 
 .dark-strip {
-    padding: 10rem;
+    padding: 10rem 3rem 5rem 8rem;
     background: #E5EBFF;
-    width: 70vw;
+    width: 75vw;
     height: 100vh;
-    display: inline-flex;
+
+}
+
+.dark-strip-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .dark-strip h1{
-    font-size: clamp(4rem, 6.4vw, 7.5rem);
+    font-size: clamp(2.1rem, 6.4vw, 7.5rem);
+    white-space: nowrap;
 }
 
 .dark-strip h3{
-    font-size: clamp(2.5rem, 2.8vw, 4rem);
+    font-size: clamp(2rem, 2.8vw, 4rem);
     margin: 2rem 0 8rem 0;
 }
 
@@ -114,7 +122,6 @@ nav .navbar-brand {
     background: #8AAEFF;
     border-radius: 80px;
     border-style: none;
-    margin-left: 40%;
     font-size: 5rem;
     text-decoration: none;
     color: white;
@@ -124,11 +131,11 @@ nav .navbar-brand {
 
 .text-thingy{
     padding: 4vh 0 0 2vw;
-
+    height: 40vh;
 }
 
 .text-thingy img{
-    max-height: 21rem;
+    max-height: 80%;
 }
 
 .tilted-book-main{
@@ -136,12 +143,13 @@ nav .navbar-brand {
 }
 
 .tilted-book-main img{
+    object-fit: scale-down;
     max-height: 85vh;
     padding: 3rem;
 }
 
 .strip_text_content{
-    margin-left: 6rem;
+    height: 40vh;
 }
 
 .patric-font{
@@ -289,25 +297,24 @@ form input{
 /* logout */
 
 .logout_text{
-    font-size: 5rem;
-    padding: 4rem 0 ;
+    font-size: clamp(2.5rem, 3.8vw, 5rem);
+    padding: 4rem 0 1rem 0 ;
 }
 
 .bunny-big{
     width: 18rem;
-    padding: 4rem 0;
+    padding: 3rem 0 4rem 0;
 }
 
 .logout-goodbye{
     background: white;
     width: 30vw;
-    margin: auto;
-    width: 25vw;
+    margin: 0 auto 5rem auto;
     border-radius: 8px;
 }
 
 .logout-goodbye p{
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 3.5vw, 4rem);
     white-space: no-wrap;
     padding: 0rem 2rem;
 }

@@ -18,22 +18,37 @@
 
     {% else %}
 
-        <div class="tilted-book-main">
-            <img src="static\pictures\notey_tilted.png" alt="Notey book closed">
-        </div>
-
-        <div class="dark-strip color_text patric-font">
-            <div class="strip_text_content">
-                <h1>Welcome to</h1>
-                <img class="logo_title" src="static/icons/notey.png" alt="Notey">
-                <h3>your notes, your way</h3>
-                <a href="{% url 'login' %}"><button class="big-button-basic button-hvr patric-font" type="submit">LOGIN</button></a>
+            <div class="tilted-book-main">
+                <img src="static\pictures\notey_tilted.png" alt="Notey book closed">
             </div>
 
-            <div class="text-thingy">
-                <img src="static/icons/text-thingy.png" alt="Text cursor icon">
+            <div class="dark-strip color_text patric-font">
+                <div class="dark-strip-text" >
+                    <div class="strip_text_content">
+                    <h1>Welcome to</h1>
+                    <img class="logo_title" src="static/icons/notey.png" alt="Notey">
+                    <h3>your notes, your way</h3>
+
+                </div>
+
+                <div class="text-thingy">
+                    <img src="static/icons/text-thingy.png" alt="Text cursor icon">
+                </div>
+
+                </div>
+                <div>
+                    <a href="{% url 'login' %}">
+                        <button class="big-button-basic button-hvr patric-font" type="submit">
+                            LOGIN
+                        </button>
+                    </a>
+                </div>
+
             </div>
-        </div>
+
+
+
+
 
     {% endif %}
 

@@ -1,4 +1,4 @@
-@media (max-width: 45rem) {
+@media (max-width: 55rem) {
 /*Styling for navbar*/
     nav {
         background-color: #8AAEFF;
@@ -129,6 +129,10 @@
       width: 100%; /* Take full width on small screens */
     }
 
+    .logo_title {
+      max-width: 12rem;
+    }
+
     .eewee-png{
         max-height: 30vh;
         margin: auto;
@@ -155,14 +159,14 @@
      }
 
     .dark-strip{
-        display: flex;
-
+        padding: 4rem 3rem;
         width: 100%;
         justify-content: center;
     }
 
-    .big-button-basic{
-        margin-left: 15%;
+    .dark-strip-text{
+      display: flex;
+      justify-content: center;
     }
 
     .strip_text_content {
@@ -176,13 +180,16 @@
       max-height: 100%;
     }
 
+    .logo_title {
+        max-width: 8rem;
+    }
 
     .strip_text_content{
         margin: 0;
     }
 
     .big-button-basic{
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 3vw, 3.2rem);
     }
 
     .text-thingy img{
