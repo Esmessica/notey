@@ -45,6 +45,7 @@
                             {% else %}
                                 <li><a href="{% url 'notey_app:mood' %}"> mood</a> </li>
                             {% endif %}
+                            <li><a href="{% url 'notey_app:draw' %}">canvas</a> </li>
 
                                 <form method="post" action="{% url 'logout' %}">
                                   {% csrf_token %}

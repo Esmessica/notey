@@ -15,7 +15,6 @@ from django.views import View
 from django.contrib import messages
 
 # Create your views here.
-# TODO make image show at create form
 
 class CustomLogoutView(LogoutView):
     template_name = 'registration/logout.html'
@@ -192,3 +191,7 @@ def get_context_data(self, **kwargs):
     user = self.request.user
 
     return context
+
+
+class DrawView(LoginRequiredMixin, TemplateView):
+    template_name = 'draw_app/draw.html'
