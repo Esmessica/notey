@@ -1,7 +1,11 @@
 {% extends 'notey_app/base.html' %}
 {% block body_block %}
-    <div class="container-canvas">
+<div class="draw-body">
+
+    <div class="container-canvas patric-font color-text">
+
         <section class="tool-board">
+
             <div class="row">
                 <label class="title-canvas"> shapes </label>
                 <ul class="options-canvas">
@@ -22,7 +26,7 @@
 
                     <li class="option-canvas">
                         <input type="checkbox" id="fill-color">
-                        <label for="fill-color">Fill color</label>
+                        <label for="fill-color" class="label-for-check">Fill color</label>
                     </li>
                 </ul>
             </div>
@@ -30,14 +34,14 @@
               <div class="row">
                 <label class="title-canvas"> options </label>
                 <ul class="options-canvas">
-                    <li class="option-canvas">
+                    <li class="option-canvas active">
                         <img src="/static/icons/brush.svg" alt="brush tool">
-                        <span>rectangle</span>
+                        <span>brush</span>
                     </li>
 
                     <li class="option-canvas">
                         <img src="/static/icons/eraser.svg" alt="eraser tool">
-                        <span>circle</span>
+                        <span>eraser</span>
                     </li>
 
                     <li class="option-canvas">
@@ -45,12 +49,40 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="row">
+                <label class="title-canvas"> colors </label>
+                <ul class="options-canvas">
+                    <li class="option-canvas">
+
+                    </li>
+                    <li class="option-canvas">
+
+                    </li>
+                    <li class="option-canvas">
+
+                    </li>
+                    <li class="option-canvas">
+
+                    </li>
+                    <li class="option-canvas">
+
+                    </li>
+                    <li class="option-canvas">
+
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <button class="clear-canvas">clear canvas</button>
+                <button class="save-img">save img</button>
+            </div>
         </section>
         <section class="drawing-board"></section>
 
-
     </div>
 
-
+</div>
 
 {%  endblock %}

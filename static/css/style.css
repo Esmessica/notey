@@ -574,3 +574,78 @@ table {
     max-width: 100%;
     word-wrap: break-word;
 }
+
+/* DRAW CANVAS */
+
+.draw-body{
+    display: flex;
+    align-items: center;
+    justify-content:  center;
+    min-height: 100vh;
+}
+
+.container-canvas{
+    display: flex;
+    width: 100%;
+    max-width: 1050px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.tool-board{
+    width: 270px;
+    padding: 15px 22px 0 15px;
+}
+
+.tool-board .row{
+    margin-bottom: 20px;
+
+}
+
+.row .options-canvas .option-canvas{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option-canvas:is(:hover, .active) img {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(36%) saturate(3401%) hue-rotate(306deg) brightness(93%) contrast(97%);
+}
+
+.option-canvas:is(:hover, .active) :where(span, label){
+    color: #212529;
+}
+
+.row .options-canvas{
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+
+.option-canvas img{
+    width: 25px;
+}
+
+section{
+    background: #ffff;
+    border-radius: 10px;
+}
+
+.drawing-board{
+    flex: 1;
+}
+
+.option-canvas :where(span, label){
+   color: #878787;
+   padding-left: 10px;
+}
+
+#fill-color:checked + .label-for-check {
+    color: #545454;
+}
+
+.option-canvas #fill-color{
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+}
