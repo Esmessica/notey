@@ -25,7 +25,10 @@ const drawing = (e) => {
 
 toolBtns.forEach(btn => {
     btn.addEventListener("click", () =>{ // adding click event to all tool option
-        console.log(btn.id);
+    // removing active class from the previous option and adding on current clicked option
+    document.querySelector(".options-canvas .active").classList.remove("active");
+    btn.classList.add("active");
+    console.log(btn.id);
     });
 });
 
