@@ -1,6 +1,7 @@
 const canvas = document.querySelector("canvas"),
 toolBtns = document.querySelectorAll(".tool"),
 fillColor = document.querySelector("#fill-color"),
+sizeSlider = document.querySelector("#size-slider"),
 ctx = canvas.getContext("2d");
 
 // global variables with default value
@@ -24,6 +25,15 @@ const drawRect = (e) =>  {
     };
     ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
 }
+
+const drawTriangle = (e) => {
+    ctx.beginPath(); // creating new path
+    ctx.moveTo(prevMouseX, prevMouseY); //moving triangle to the mouse pointer
+    ctx.lineTo(e.offsetX, e.offsetY);   // creating firsl line acording t o mouse pointer
+    ctx.lineTo(prevMouseX * 2 - e.offsetX, e.offsetY);
+    ctx.closePath();
+    fillColor.checked ? ctx.fill() : ctx.stroke();
+};
 
 const drawCircle = (e) => {
     ctx.beginPath(); // creating new path to the circle
@@ -55,7 +65,10 @@ const drawing = (e) => {
     }
     else if(selectedTool === "circle"){
         drawCircle(e);
-    };
+    }
+    else{
+        drawTriangle(e);
+    }
 
 };
 
@@ -68,6 +81,8 @@ toolBtns.forEach(btn => {
     console.log(btn.id);
     });
 });
+
+sizeSlider.addEventListener("change",() => brushWidth = sizeSlider.value);  // passing slider valua as brushSize
 
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
