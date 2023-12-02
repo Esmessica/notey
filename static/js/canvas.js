@@ -4,6 +4,7 @@ fillColor = document.querySelector("#fill-color"),
 sizeSlider = document.querySelector("#size-slider"),
 colorBtns = document.querySelectorAll(".color .option-canvas"),
 colorPicker = document.querySelector("#color-picker"),
+clearCanvas= document.querySelector(".clear-canvas"),
 ctx = canvas.getContext("2d");
 
 // global variables with default value
@@ -106,6 +107,11 @@ colorPicker.addEventListener("change", () => {
     // passing picked color value from color picker to last color bakground
     colorPicker.parentElement.style.background = colorPicker.value;
     colorPicker.parentElement.click();
+});
+
+clearCanvas.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);   // clearing whole canvas
+    console.log("Canvas cleared")
 });
 
 canvas.addEventListener("mousedown", startDraw);
