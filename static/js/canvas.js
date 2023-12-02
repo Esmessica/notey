@@ -2,6 +2,8 @@ const canvas = document.querySelector("canvas"),
 toolBtns = document.querySelectorAll(".tool"),
 fillColor = document.querySelector("#fill-color"),
 sizeSlider = document.querySelector("#size-slider"),
+colorBtns = document.querySelectorAll(".color .option-canvas"),
+colorPicker = document.querySelector("#color-picker"),
 ctx = canvas.getContext("2d");
 
 // global variables with default value
@@ -10,6 +12,7 @@ let prevMouseX, prevMouseY, snapshot,
 isDrawing = false,
 selectedTool = "brush",
 brushWidth = 5;
+selectedColor = "#2a2a2aba";
 
 window.addEventListener("load", () => {
 // setting canvas width/height..offsetwidth/heighz returns viawable width and height of an element
@@ -49,6 +52,8 @@ const startDraw = (e) => {
     prevMouseY = e.offsetY;     // passing current mouseY position as prevMouseY value
     ctx.beginPath(); // creating new path to draw
     ctx.lineWidth = brushWidth;
+    ctx.strokeStyle = selectedColor;    // passing selectedColor as stroke style
+    ctx.fillStyle = selectedColor;      // passing selected color as fill style
     snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
 };
 
@@ -56,7 +61,10 @@ const drawing = (e) => {
     if(!isDrawing) return; //isDrawing is false return from here
     ctx.putImageData(snapshot, 0, 0);    // adding copied canvas data on to this canvas
 
-    if(selectedTool === "brush"){
+    if(selectedTool === "brush" || selectedTool === "eraser" ){
+        // if selecter tool is eraser then strokeStyle is white
+        // to paint white color on canvas content else stroke color to selected color
+        ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
         ctx.lineTo(e.offsetX, e.offsetY); // creating line according to the mouse pointer
         ctx.stroke();   //  drawind/filling line with color
     }
@@ -83,6 +91,22 @@ toolBtns.forEach(btn => {
 });
 
 sizeSlider.addEventListener("change",() => brushWidth = sizeSlider.value);  // passing slider valua as brushSize
+
+colorBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        // removing active class from the previous option and adding on current clicked option
+        document.querySelector(".options-canvas .selected").classList.remove("selected");
+        btn.classList.add("selected");
+        // passing selected btn background color as selectedColor value
+        selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
+    });
+});
+
+colorPicker.addEventListener("change", () => {
+    // passing picked color value from color picker to last color bakground
+    colorPicker.parentElement.style.background = colorPicker.value;
+    colorPicker.parentElement.click();
+});
 
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);

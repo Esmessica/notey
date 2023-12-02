@@ -688,28 +688,28 @@ section{
 }
 
 .color .option-canvas:nth-child(1){
-    background: #ffff;
+    background-color: #ffff;
     border: 1px solid #cbcbcb;
 }
 
 .color .option-canvas:nth-child(2){
-    background: #2a2a2aba;
+    background-color: #2a2a2aba;
 }
 
 .color .option-canvas:nth-child(3){
-    background: #f6e9c4;
+    background-color: #f6e9c4;
 }
 
 .color .option-canvas:nth-child(4){
-    background: #b4dea1;
+    background-color: #b4dea1;
 }
 
 .color .option-canvas:nth-child(5){
-    background: #ccdbff;
+    background-color: #ccdbff;
 }
 
 .color .option-canvas:nth-child(6){
-    background: #f29999;
+    background-color: #f29999;
 }
 
 .buttons button{
