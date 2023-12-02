@@ -230,10 +230,17 @@
         padding: 1rem 0 3rem 0;
     }
 
+    .eewee-meet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .eewee-png{
         width: 35vw;
         height: auto;
         object-fit: contain;
+        margin:0;
     }
 
     .heading-meet{
@@ -631,12 +638,4 @@
         background: #545454;
     }
 
- /*
-
-    .drawing-board{
-        flex: 1;
-    }
-
-
-*/
 }
