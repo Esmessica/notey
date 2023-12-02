@@ -5,6 +5,7 @@ sizeSlider = document.querySelector("#size-slider"),
 colorBtns = document.querySelectorAll(".color .option-canvas"),
 colorPicker = document.querySelector("#color-picker"),
 clearCanvas= document.querySelector(".clear-canvas"),
+saveImg= document.querySelector(".save-img"),
 ctx = canvas.getContext("2d");
 
 // global variables with default value
@@ -15,10 +16,18 @@ selectedTool = "brush",
 brushWidth = 5;
 selectedColor = "#2a2a2aba";
 
+const setCanvasBackground = () => {
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = selectedColor;      // setting fillstyle back to the selectedColor, it' ll be the brush color
+};
+
+
 window.addEventListener("load", () => {
 // setting canvas width/height..offsetwidth/heighz returns viawable width and height of an element
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
+    setCanvasBackground();
 });
 
 const drawRect = (e) =>  {
@@ -111,8 +120,18 @@ colorPicker.addEventListener("change", () => {
 
 clearCanvas.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);   // clearing whole canvas
+    setCanvasBackground();
     console.log("Canvas cleared")
 });
+
+saveImg.addEventListener("click", () => {
+    const link = document.createElement("a");   //creating <a> element
+    link.download = 'notey-image-'+ Date.now() +'.png';  //passing current date as link download value
+    link.href = canvas.toDataURL(); // passing canvasData as link href value
+    link.click();   // clicking te link to download image
+    console.log("Canvas saved")
+});
+
 
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", drawing);
