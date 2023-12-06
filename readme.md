@@ -6,7 +6,7 @@ __NOTEY__
 Notey is simplistic notepad web app wrapped in cute childish design.
 ----
 __ More features are comming in future.
-*  option so change password
+*  option to change password
 *  personal daily tips for activities
 *  all notes page limit for notes per one page
 *  Eewee christmas event clothes
