@@ -5,9 +5,13 @@ __NOTEY__
 
 Notey is simplistic notepad web app wrapped in cute childish design.
 ----
-* More features are comming in future.
+__ More features are comming in future.
+*  option to change password
+*  personal daily tips for activities
+*  all notes page limit for notes per one page
+*  Eewee christmas event clothes
 
-The app is deplyed at Vercel for use:
+The app is deployed on Vercel for personal use:
 
 https://notey-app.vercel.app/
 
